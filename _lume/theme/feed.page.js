@@ -19,7 +19,7 @@ export default async function (
     }],
     language: "en",
     items: await Promise.all(
-      search.pages("blog=true", "date=desc").map(async (post) => ({
+      search.pages("type=post", "date=desc").map(async (post) => ({
         id: url(post.url, true),
         url: url(post.url, true),
         title: post.title,

@@ -1,0 +1,12 @@
+{% macro show_tags(entries) %}
+{% if entries and entries.length > 0 %}
+<span class="taglist">
+	{% for entry in entries %}
+		<a 
+		href="/tags/{{ entry }}" 
+		style="--color: var(--tag-fg-{{ entry }}, var(--tag-fg-default)); --bg-color: var(--tag-bg-{{ entry }}, var(--tag-bg-default));"
+	>{{ entry }}</a>
+	{% endfor %}
+</span>
+{% endif %}
+{% endmacro %}

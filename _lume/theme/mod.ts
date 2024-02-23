@@ -6,7 +6,7 @@ import { relative } from "lume/deps/path.ts";
 import nunjucks from "lume/plugins/nunjucks.ts";
 import date from "lume/plugins/date.ts";
 import read_info from "lume/plugins/reading_info.ts";
-import shikiji from "https://deno.land/x/lume_shikiji/mod.ts";
+import shikiji from "https://deno.land/x/lume_shikiji@0.0.8/mod.ts";
 
 export default () => {
   return (site: Site) => {
@@ -53,7 +53,7 @@ export default () => {
       .use(read_info())
       .use(shikiji({
         highlighter: {
-          langs: ["javascript", "rust", "c", "bash", "python", "yaml"],
+          langs: ["bash", "python", "yaml", "c", "rust"],
           themes: ["github-dark"],
         },
         theme: "github-dark",

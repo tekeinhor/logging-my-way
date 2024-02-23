@@ -15,7 +15,7 @@ url: /feed.xml
 		<name>{{ site.author }}</name>
 		<uri>{{ "/" | url(true) }}</uri>
 	</author>
-	{%- for post in search.pages("blog=true", "date=desc") %}
+	{%- for post in search.pages("type=post", "date=desc") %}
 	<entry>
 		<title>{{ post.title }}</title>
 		<link href="{{ post.url | url(true) }}"/>

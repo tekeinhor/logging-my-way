@@ -24,10 +24,14 @@ This website is generated with [Lume](https://lume.land/), a static site generat
 
 ## Typefaces
 
-This website is set in [Recursive by Arrow Type](https://www.recursive.design/)…
+[Futura PT](https://fonts.adobe.com/fonts/futura-pt)
+
+[JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+
+<!-- This website is set in [Recursive by Arrow Type](https://www.recursive.design/)…
 yes, including code snippets: this is a variable font that has "monospace-ness" as a variability axis.
 
-Also, [Silkscreen](https://kottke.org/plus/type/silkscreen/) is used for the tiny nostalgic badges at the bottom of the page.
+Also, [Silkscreen](https://kottke.org/plus/type/silkscreen/) is used for the tiny nostalgic badges at the bottom of the page. -->
 
 ## Icons
 

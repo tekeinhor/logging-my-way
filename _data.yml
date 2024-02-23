@@ -2,7 +2,7 @@ site:
   author: Tatiana
   title: Logging my way
   feedTitle: Logging my way
-  pfp: /assets/val.1.png
+  pfp: /assets/icons/footprint.svg
   color: "#d4d4d4"
 
 contact_links:
@@ -20,9 +20,3 @@ footer_links:
     url: /blog/
   - name: about this site
     url: /about/
-
-projects:
-- title: Tag Generator
-  url: https://github.com/tekeinhor/tag-generator
-  desc: Some description
-  icon: github

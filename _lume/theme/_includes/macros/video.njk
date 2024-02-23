@@ -1,0 +1,9 @@
+{% macro video(vid, inFeed=false) -%}
+<figure>
+	<video controls {% if vid.muted %}muted{% endif %} preload="none" width="{{ vid.width }}" height="{{ vid.height }}" poster="{{ vid.poster }}">
+		{%- for src in vid.sources %}
+		<source type="{{ src.type }}" src="{{ src.src }}">
+		{%- endfor %}
+	</video>
+</figure>
+{%- endmacro %}

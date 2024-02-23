@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "lume": "echo \"import 'lume/cli.ts'\" | deno run --unstable -A - --config _lume/config.ts",
+    "lume": "echo \"import 'lume/cli.ts'\" | deno run -A - --config _lume/config.ts",
     "build": "deno task lume",
     "serve": "deno task lume -s"
   },

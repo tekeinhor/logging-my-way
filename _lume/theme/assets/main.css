@@ -1,37 +1,19 @@
 @import url("./jetbrains-mono.css");
 @import url("./futura-pt.css");
-
-/*! val.packett.cool 💜 fonts: https://www.recursive.design/ https://kottke.org/plus/type/silkscreen/ */
-@font-face {
-  font-family: RecVar;
-  font-style: oblique 0deg 15deg;
-  font-weight: 300 1000;
-  src: url('RecVar1085.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: Slkscr;
-  src: url('slkscr.woff2') format('woff2');
-}
+@import url("./tag-colors.css");
 
 :root {
   --fnt-mono: 0;
   --fnt-casl: .2;
   --hue-main: 263.85;
   --hue-accent: 358.3;
-  /* --color-fg: hsl(var(--hue-main), 99.8%, 97.3%); */
-  /* --color-bg: hsl(var(--hue-accent), 20%, 15%); */
   --color-fg: #404040;
   --color-bg: #f5f5f5;
   --color-bg2: #f5f5f5;
   --color-bg3: hsl(var(--hue-accent), 20%, 30%);
-  /* --color-accent: hsl(var(--hue-accent), 100%, 71.9%); */
-  /* --color-accent2: hsl(var(--hue-accent), 98%, 84%); */
-  /* --color-accent3: hsl(var(--hue-accent), 88%, 100%); */
   --color-accent: #d4d4d4;
   --color-accent2: #1a6ece;
   --color-accent3: #3D3D3D;
-  /* --showcase-card-color: hsl(var(--hue-accent), 16%, 12%); */
   --showcase-card-color: #f0f0f0;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
@@ -63,8 +45,6 @@ body {
   line-height: 1.5;
   word-wrap: break-word;
   font-family: Futura PT, "Helvetica", "Arial", sans-serif;
-  /* font-weight: 390; */
-  /* font-feature-settings: "liga", "kern"; */
   background: var(--color-bg);
   color: var(--color-fg);
 }
@@ -220,6 +200,7 @@ h4 {
 
 article {
   hyphens: auto;
+  font-size: 1.2rem;
 }
 
 blockquote {
@@ -244,11 +225,12 @@ resp-cont[data-pad] img {
 
 #header {
   display: flex;
+  justify-content: center;
   align-items: center;
-  font-size: 1.15rem;
+  gap: 0.25rem;
+  font-size: 1.5rem;
   background: var(--color-accent);
   color: var(--color-accent2);
-  /* text-shadow: var(--color-accent3) 0 1px 0; */
   padding: 1rem 1ch calc(1rem + 24px * 1.5);
   --mask:
     radial-gradient(43.27px at 50% calc(100% - 60.00px), #000 99%, #0000 101%) calc(50% - 48px) 0/96px 100%,
@@ -260,33 +242,11 @@ resp-cont[data-pad] img {
 #header ::selection {
   background: #fff;
   color: var(--color-accent);
-  /* text-shadow: none; */
-}
-
-#header * {
-  display: inline-block;
-  vertical-align: middle;
 }
 
 #header a {
   color: var(--color-accent3);
   font-weight: 400;
-}
-
-#header nav {
-  display: inline-flex;
-  gap: .5ch;
-  padding-left: .5ch;
-}
-
-#header > :first-child {
-  flex: 1 1 calc(50% + 26px + .5ch);
-  text-align: right;
-}
-
-#header > :last-child {
-  flex: 1 1 calc(50% - 26px - .5ch);
-  text-align: left;
 }
 
 #home {
@@ -309,6 +269,10 @@ resp-cont[data-pad] img {
   border: 2px solid var(--color-fg);
   overflow: hidden;
   background: #dcc7f5;
+}
+
+.home-content {
+  font-size: 1.2rem;
 }
 
 .on-narrow {
@@ -404,7 +368,6 @@ main {
   margin: -.2rem 0;
 }
 
-.showcase-card.showcase-project,
 .showcase-card.showcase-post {
   background-color: var(--showcase-card-color);
   box-shadow: 0 0 5px gainsboro;
@@ -413,6 +376,12 @@ main {
   position: relative;
   overflow: hidden;
   border-radius: 5px;
+}
+
+.showcase-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .showcase-readmore {
@@ -488,7 +457,11 @@ main {
 
 @media screen and (min-width: 69ch) {
   .showcase-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .showcase-grid > :only-child {
+    grid-column: 1/-1;
   }
 }
 
@@ -522,19 +495,6 @@ main {
   }
 }
 
-/* @media screen and (min-width: calc(100ch + 4rem)) {
-
-  .post-content>pre,
-  .post-content>figure,
-  .post-content>.pic-row,
-  .post-content>details>pre,
-  .post-content>details>figure,
-  .post-content>details>.pic-row {
-    margin-left: -10ch;
-    margin-right: -10ch;
-  }
-} */
-
 .post-content {
   margin: 3rem auto;
 }
@@ -560,7 +520,6 @@ main {
 .post-subhead {
   font-weight: 350;
   max-width: 60ch;
-  font-size: .94em;
 }
 
 .preview-meta {
@@ -584,149 +543,22 @@ main {
   text-align: center;
 }
 
-a.ᵇᵈᵍ {
-  display: inline-flex;
-  align-items: center;
-  width: 80px;
-  height: 15px;
-  vertical-align: middle;
-  font: 8px Slkscr;
+.taglist a {
+  color: var(--color);
+  background-color: var(--bg-color);
   text-decoration: none;
-  -webkit-font-smoothing: none;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
+  text-transform: uppercase;
+  border-radius: 30px;
+  padding: 0.15rem 0.5rem;
+  font-weight: 500;
+  font-size: .7rem;
+  -webkit-font-smoothing: antialiased;
 }
 
-.ᵇᵈᵍ.ᶠˣ {
-  border: 1px solid #FF7139;
-  color: #EE6129;
-  background: var(--color-accent3) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAaBAMAAADRS8i8AAAAJ1BMVEUAAAD/lTW1PeT/rDPmo2n/Yi3/5kT/zjb/qR7/iBzCc6OTUvSwPeTLMnzIAAAABnRSTlMAV2il/v4VjkcFAAABJUlEQVR42mXOP0vDQBgG8KuhqLN/wN3RQZAqgmMhUFwPzCYoOXDKlNdVFHLpKoHcLgr6ES5jQWjzoXzuzV0k6VMo4fe+z92JcS5T5GGLJynnfOxR5/djPx74xfD44HuvvSv17xPt/Io/Kc9736/hh9yJiFTvptbcQXaJKHhkTC2u65fgufcTY8qDyrj9ndM5Bqpzg3383oU4a5EPUkrBI4NorUswZ4U3wacVHFfrm9bniygTYpY4L7V+a0PYZeUKNQq3wX/hEynNsDBffMOnUsrEF5bsq/QxZsc5eA7cDz5TlYkj7IMQHmzg6zRnTwBFQe6fNm4Q4/yZ338uCHmytmn4PRK544Ib/NjG4mb2UCCaL6x1hXXwpMb+0nbBDey+4ZkviLM/tM3qTnWcUQgAAAAASUVORK5CYII=) right center / 22.5px 13px no-repeat;
-  padding: 0 22px 0 1px;
+.icon-footprint {
+  width: 2em;
 }
 
-.ᵇᵈᵍ.ᶠˣ span:last-of-type {
-  color: #B933E1;
-}
-
-.ᵇᵈᵍ.ⁿᵇ {
-  border: 1px solid var(--color-accent3);
-  background: linear-gradient(to right, #f9a31b, #f9a31b 25%, #fef3c0 25%, #fef3c0 50%, #bc4a9b 50%, #bc4a9b 75%, #403353 75%, #403353);
-}
-
-.ᵇᵈᵍ.ᵃᶦ {
-  border: 1px solid #999;
-  background: #fefefe;
-  color: #444;
-}
-
-.ᵇᵈᵍ.ᵃᶦ span:first-of-type {
-  background: #999;
-  color: #fefefe;
-  padding: 0 0.75em;
-  margin: 0 2px 0 1px;
-}
-
-
-/*!
-  Theme: Rebecca
-  Author: Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme)
-  License: ~ MIT (or more permissive) [via base16-schemes-source]
-  Maintainer: @highlightjs/core-team
-  Version: 2021.09.0
-*/
-.hljs {
-  color: #f1eff8
-}
-
-.hljs-comment {
-  color: #99c
-}
-
-.hljs-tag {
-  color: #a0a0c5
-}
-
-.hljs-operator,
-.hljs-punctuation,
-.hljs-subst {
-  color: #f1eff8
-}
-
-.hljs-operator {
-  opacity: .7
-}
-
-.hljs-bullet,
-.hljs-deletion,
-.hljs-name,
-.hljs-selector-tag,
-.hljs-template-variable,
-.hljs-variable {
-  color: #a0a0c5
-}
-
-.hljs-attr,
-.hljs-link,
-.hljs-literal,
-.hljs-number,
-.hljs-symbol,
-.hljs-variable.constant_ {
-  color: #efe4a1
-}
-
-.hljs-class .hljs-title,
-.hljs-title,
-.hljs-title.class_ {
-  color: #ae81ff
-}
-
-.hljs-strong {
-  font-weight: 700;
-  color: #ae81ff
-}
-
-.hljs-addition,
-.hljs-code,
-.hljs-string,
-.hljs-title.class_.inherited__ {
-  color: #6dfedf
-}
-
-.hljs-built_in,
-.hljs-doctag,
-.hljs-keyword.hljs-atrule,
-.hljs-quote,
-.hljs-regexp {
-  color: #8eaee0
-}
-
-.hljs-attribute,
-.hljs-function .hljs-title,
-.hljs-section,
-.hljs-title.function_,
-.ruby .hljs-property {
-  color: #2de0a7
-}
-
-.diff .hljs-meta,
-.hljs-keyword,
-.hljs-template-tag,
-.hljs-type {
-  color: #7aa5ff
-}
-
-.hljs-emphasis {
-  color: #7aa5ff;
-  font-style: italic
-}
-
-.hljs-meta,
-.hljs-meta .hljs-keyword,
-.hljs-meta .hljs-string {
-  color: #ff79c6
-}
-
-.hljs-meta .hljs-keyword,
-.hljs-meta-keyword {
-  font-weight: 700
+.icon-footprint path {
+  fill: var(--color-accent2);
 }

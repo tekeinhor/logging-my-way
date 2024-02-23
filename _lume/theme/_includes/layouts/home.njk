@@ -3,35 +3,28 @@ layout: layouts/base.njk
 mainClass: h-card
 ---
 
-{{ content | safe }}
+{% import "macros/preview.njk" as macro_preview %}
+{% import "macros/tags.njk" as macro_tags %}
+
+<div class="home-content">
+	{{ content | safe }}
+</div>
 
 <h2>Projects</h2>
 
 <ul class="showcase-grid">
-	{%- for proj in projects | take(4) %}
-	<li class="showcase-card showcase-project">
-		<a href="{{ proj.url }}" class="showcase-spread" target="__blank">
-			<h3>{{ proj.title }}</h3>
-			{%- if proj.icon %}
-			<div>
-				<img width="20" src="/assets/{{ proj.icon }}-dark.svg" alt="" loading="lazy" decoding="async">
-			</div>
-			{%- endif %}
-		</a>
-		<p>{{ proj.desc | safe }}</p>
-	</li>
-	{%- endfor %}
+	{% for proj in search.pages("type=project", "date=desc") | take(2) %}
+	{{ macro_preview.preview(proj) }}
+	{% endfor %}
 </ul>
 
 <h2>Latest blog posts</h2>
 
-{% import "macros/blog-macros.njk" as blog %}
-
 <div class="h-feed">
 	<ul class="showcase-grid">
-		{%- for post in search.pages("blog=true", "date=desc") | take(2) %}
-		{{ blog.preview(post) }}
-		{%- endfor %}
+		{% for post in search.pages("type=post", "date=desc") | take(2) %}
+		{{ macro_preview.preview(post) }}
+		{% endfor %}
 	</ul>
 	<a href="/blog/" class="u-uid u-url open-more">Read more posts →</a>
 </div>

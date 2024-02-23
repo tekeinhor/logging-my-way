@@ -1,0 +1,10 @@
+title: Tag Generator
+external_url: https://github.com/tekeinhor/tag-generator
+desc: Some description
+icon: github
+tags:
+- mlops
+- aws
+- ci-cd
+- terraform
+- python

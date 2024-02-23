@@ -1,0 +1,39 @@
+{% macro preview(post) -%}
+	{% import "macros/tags.njk" as macro_tags %}
+
+	<li class="showcase-card showcase-post h-entry">
+		{% if post.type == "project" %}
+		<a href="{{ post.external_url }}" target="__blank" class="showcase-spread u-url u-uid">
+		{% else %}
+		<a href="{{ post.url }}" class="showcase-spread u-url u-uid">
+		{% endif %}
+
+		<h3 class="p-name">
+			{% if post.type == "project" %}
+			<img width="20" src="/assets/icons/code-solid.svg" />
+			{% else %}
+			<img width="15" src="/assets/icons/pen-fancy-solid.svg" />
+			{% endif %}
+			{{ post.title }}
+		</h3>
+
+		{% if post.icon %}
+		<div>
+			<img width="20" src="/assets/{{ post.icon }}-dark.svg" alt="" loading="lazy" decoding="async">
+		</div>
+		{% endif %}
+		</a>
+		<p class="preview-meta">
+			{% if post.type == "post" %}
+			<time datetime="{{ post.date | date }}" class="dt-published">{{ post.date | date('HUMAN_DATE') }}</time>
+			✦ {{ post.readingInfo.minutes }} min read
+			<br/>
+			{% endif %}
+			{{ macro_tags.show_tags(post.tags) }}
+		</p>
+		<p class="p-summary">{{ post.desc }}</p>
+		{% if post.type == "post" %}
+		<p class="showcase-readmore"><a href="{{ post.url }}">read more&nbsp;→</a></p>
+		{% endif %}
+	</li>
+{%- endmacro %}

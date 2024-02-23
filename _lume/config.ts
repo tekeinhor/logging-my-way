@@ -7,7 +7,9 @@ import ins from "npm:markdown-it-ins@3.0.1";
 
 import theme from "./theme/mod.ts";
 
-const site = lume({}, {
+const site = lume({
+  dest: "_lume/_site"
+}, {
   markdown: {
     options: {
       typographer: true,
