@@ -10,7 +10,7 @@ mainClass: h-card
 <ul class="showcase-grid">
 	{%- for proj in projects | take(4) %}
 	<li class="showcase-card showcase-project">
-		<a href="{{ proj.url }}" class="showcase-spread">
+		<a href="{{ proj.url }}" class="showcase-spread" target="__blank">
 			<h3>{{ proj.title }}</h3>
 			{%- if proj.icon %}
 			<div>
@@ -25,7 +25,7 @@ mainClass: h-card
 
 <h2>Latest blog posts</h2>
 
-{% import "blog.njk" as blog %}
+{% import "macros/blog-macros.njk" as blog %}
 
 <div class="h-feed">
 	<ul class="showcase-grid">

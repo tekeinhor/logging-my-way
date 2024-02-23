@@ -1,5 +1,5 @@
 ---
-layout: layouts/info.njk
+layout: layouts/about.njk
 title: About this site
 ---
 

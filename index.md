@@ -1,5 +1,5 @@
 ---
-layout: layouts/index.njk
+layout: layouts/home.njk
 ---
 
 # Hello!

@@ -7,7 +7,7 @@ blog: false
 renderOrder: 0
 ---
 
-{% import "blog.njk" as blog %}
+{% import "macros/blog-macros.njk" as blog %}
 
 <h1>Blog</h1>
 
@@ -16,5 +16,3 @@ renderOrder: 0
 	{{ blog.preview(post) }}
 	{%- endfor %}
 </ul>
-
-{{ blog.subscribe() }}

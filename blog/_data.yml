@@ -1,4 +1,4 @@
-layout: layouts/blog.js
+layout: layouts/blog-post.njk
 templateEngine: [njk, md]
 renderOrder: -1
 blog: true
