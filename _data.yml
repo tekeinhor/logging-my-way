@@ -1,0 +1,29 @@
+site:
+  author: Tatiana
+  title: Logging my way
+  feedTitle: Logging my way
+  pfp: /assets/val.1.png
+  color: "#9B70FF"
+
+contact_links:
+  - name: Email
+    title: tatia.dev@gmail.com
+    url: mailto:tatia.dev@gmail.com
+  - name: Github
+    title: "@tatia-dev"
+    url: https://github.com/tatia-dev
+
+footer_links:
+  - name: "↑↑↑"
+    url: "#"
+  - name: home
+    url: /
+  - name: blog
+    url: /blog/
+  - name: about this site
+    url: /about/
+
+projects:
+- title: Tag Generator
+  url: https://github.com/tekeinhor/tag-generator
+  desc: Some description

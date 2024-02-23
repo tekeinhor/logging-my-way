@@ -1,0 +1,82 @@
+---
+layout: layouts/base.njk
+mainClass: h-card
+---
+
+{{ content | safe }}
+
+<h2>Projects</h2>
+
+{% macro project(proj) -%}
+	<li class="showcase-card{% if proj.deprecated %} deprecated{% endif %}">
+		<a href="{{ proj.url }}" class="showcase-spread">
+			<h3>{{ proj.title }}</h3>
+			{%- if proj.shield %}
+			<div>
+				<img src="{{ proj.shield }}" alt="" loading="lazy" decoding="async">
+			</div>
+			{%- endif %}
+		</a>
+		<p>{{ proj.desc | safe }} ✦&nbsp;<a href="{{ proj.url }}">read more&nbsp;→</a></p>
+	</li>
+{%- endmacro %}
+
+<ul class="showcase-grid">
+	{%- for proj in projects | take(4) %}
+	{{ project(proj) }}
+	{%- endfor %}
+</ul>
+
+{# <details>
+	<summary class="open-more">A few more projects</summary>
+	<ul class="showcase-grid">
+		{%- for proj in projects | drop(4) %}
+		{{ project(proj) }}
+		{%- endfor %}
+	</ul>
+</details> #}
+
+
+{% macro linky(link) -%}
+	<li class="showcase-card showcase-spread">
+		<strong>{{ link.place }}</strong>
+		<a href="{{ link.url }}" rel="me">
+			{% if link.icon -%}
+			<svg width="24" role="presentation" aria-hidden="true" viewBox="0 0 24 24"><path d="{{ link.icon }}"/></svg>
+			{% endif -%}
+			{{ link.title }}
+		</a>
+	</li>
+{%- endmacro %}
+
+
+<h2>Latest blog posts</h2>
+
+{% import "blog.njk" as blog %}
+
+<div class="h-feed">
+	<ul class="showcase-grid">
+		{%- for post in search.pages("blog=true", "date=desc") | take(2) %}
+		{{ blog.preview(post) }}
+		{%- endfor %}
+	</ul>
+	<a href="/blog/" class="u-uid u-url open-more">Read more posts →</a>
+</div>
+
+
+
+<h2>Contact me</h2>
+
+<ul class="showcase-grid">
+	{%- for link in contact_links %}
+	<li class="showcase-card showcase-spread">
+		<strong>{{ link.name }}</strong>
+		<a href="{{ link.url }}" rel="me">
+			{% if link.icon -%}
+      <img width="24" height="24" src="{{ link.icon }}" />
+			{% endif -%}
+			{{ link.title }}
+		</a>
+	</li>
+	{%- endfor %}
+</ul>

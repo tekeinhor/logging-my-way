@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="{{ site.color }}">
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: img.shields.io; script-src 'self' 'unsafe-inline'; object-src 'none'">
+		<title>{{ title }}{% if title %} - {% endif %}{{ site.title }}</title>
+		<link rel="stylesheet" href="{% asset "main.css" %}">
+		<script src="{% asset "main.js" %}"></script>
+		<link rel="shortcut icon" href="{{ site.pfp }}">
+		<link rel="canonical" href="{{ url }}">
+		<link rel="alternate feed" href="/feed.xml" type="application/atom+xml" title="{{ site.feedTitle }}">
+		<link rel="alternate feed" href="/feed.json" type="application/feed+json" title="{{ site.feedTitle }}">
+	</head>
+	<body>
+		<header id="header">
+			<div>
+				<a href="/" rel="home" id="home" {%- if url == "/" %} aria-current="page"{% endif %}>
+					<div class="on-wide">{{ site.title | lower }}</div>
+					{# <div class="logo-wrap">
+						<img alt="" role="presentation" src="{{ site.pfp }}" width="48" height="48">
+					</div> #}
+					<div class="on-narrow">{{ site.title | lower }}</div>
+				</a>
+			</div>
+			<nav>
+				{# <div class="on-narrow">✦ </div> #}
+				✦ ✦ ✦ <a href="/blog/" {%- if url == "/blog/" %} aria-current="page"{% endif %}>blog</a>
+			</nav>
+		</header>
+		<main class="{{ mainClass }}">
+			{{ content | safe }}
+		</main>
+		<footer id="footer">
+			<p>
+				<span id="copyright">©2024</span> {{ site.title | lower }}
+
+				{%- for link in footer_links %}
+				✦ <a href="{{ link.url }}" {%- if url == link.url %} aria-current="page"{% endif %}>{{ link.name }}</a>
+				{%- endfor %}
+			</p>
+		</footer>
+	</body>
+</html>

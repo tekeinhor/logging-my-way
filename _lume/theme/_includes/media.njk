@@ -1,0 +1,27 @@
+{% macro picture(pic, inFeed=false) -%}
+<figure class="lqip" style="--ratio:{{ pic.width }}/{{ pic.height }};
+	{%- if pic.color or pic.lqip -%}
+		background:
+	{%- endif -%}
+	{{- pic.color -}}
+	{%- if pic.lqip %} url({{ pic.lqip | safe }}){% endif -%}
+	">
+	<picture>
+		{%- for src in pic.sources %}
+		<source type="{{ src.type }}" srcset="{{ src.srcset }}">
+		{%- endfor %}
+		<img alt="{{ pic.alt }}" src="{{ pic.src }}" width="{{ pic.width }}" height="{{ pic.height }}"
+			class="u-photo" loading="lazy" decoding="async">
+	</picture>
+</figure>
+{%- endmacro %}
+
+{% macro video(vid, inFeed=false) -%}
+<figure>
+	<video controls {% if vid.muted %}muted{% endif %} preload="none" width="{{ vid.width }}" height="{{ vid.height }}" poster="{{ vid.poster }}">
+		{%- for src in vid.sources %}
+		<source type="{{ src.type }}" src="{{ src.src }}">
+		{%- endfor %}
+	</video>
+</figure>
+{%- endmacro %}
