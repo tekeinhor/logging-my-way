@@ -3,7 +3,7 @@ site:
   title: Logging my way
   feedTitle: Logging my way
   pfp: /assets/val.1.png
-  color: "#9B70FF"
+  color: "#d4d4d4"
 
 contact_links:
   - name: Email
@@ -14,8 +14,6 @@ contact_links:
     url: https://github.com/tatia-dev
 
 footer_links:
-  - name: "↑↑↑"
-    url: "#"
   - name: home
     url: /
   - name: blog
@@ -27,3 +25,4 @@ projects:
 - title: Tag Generator
   url: https://github.com/tekeinhor/tag-generator
   desc: Some description
+  icon: github

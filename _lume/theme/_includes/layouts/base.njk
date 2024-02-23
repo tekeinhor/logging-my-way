@@ -34,12 +34,14 @@
 		</main>
 		<footer id="footer">
 			<p>
-				<span id="copyright">©2024</span> {{ site.title | lower }}
-
 				{%- for link in footer_links %}
-				✦ <a href="{{ link.url }}" {%- if url == link.url %} aria-current="page"{% endif %}>{{ link.name }}</a>
+				{%- if loop.index > 1 %}
+				✦ 
+				{% endif %}
+				<a href="{{ link.url }}" {%- if url == link.url %} aria-current="page"{% endif %}>{{ link.name }}</a>
 				{%- endfor %}
 			</p>
+			<span id="copyright">©2024</span> {{ site.title | lower }}
 		</footer>
 	</body>
 </html>

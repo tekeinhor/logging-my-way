@@ -53,7 +53,7 @@ export default () => {
       .use(read_info())
       .use(shikiji({
         highlighter: {
-          langs: ["javascript", "rust", "c"],
+          langs: ["javascript", "rust", "c", "bash", "python", "yaml"],
           themes: ["github-dark"],
         },
         theme: "github-dark",

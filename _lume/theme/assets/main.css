@@ -1,3 +1,6 @@
+@import url("./jetbrains-mono.css");
+@import url("./futura-pt.css");
+
 /*! val.packett.cool 💜 fonts: https://www.recursive.design/ https://kottke.org/plus/type/silkscreen/ */
 @font-face {
   font-family: RecVar;
@@ -16,17 +19,24 @@
   --fnt-casl: .2;
   --hue-main: 263.85;
   --hue-accent: 358.3;
-  --color-fg: hsl(var(--hue-main), 99.8%, 97.3%);
-  --color-bg: hsl(var(--hue-accent), 20%, 15%);
-  --color-bg2: hsl(var(--hue-accent), 20%, 10%);
+  /* --color-fg: hsl(var(--hue-main), 99.8%, 97.3%); */
+  /* --color-bg: hsl(var(--hue-accent), 20%, 15%); */
+  --color-fg: #404040;
+  --color-bg: #f5f5f5;
+  --color-bg2: #f5f5f5;
   --color-bg3: hsl(var(--hue-accent), 20%, 30%);
-  --color-accent: hsl(var(--hue-accent), 100%, 71.9%);
-  --color-accent2: hsl(var(--hue-accent), 98%, 84%);
-  --color-accent3: hsl(var(--hue-accent), 88%, 100%);
+  /* --color-accent: hsl(var(--hue-accent), 100%, 71.9%); */
+  /* --color-accent2: hsl(var(--hue-accent), 98%, 84%); */
+  /* --color-accent3: hsl(var(--hue-accent), 88%, 100%); */
+  --color-accent: #d4d4d4;
+  --color-accent2: #1a6ece;
+  --color-accent3: #3D3D3D;
+  /* --showcase-card-color: hsl(var(--hue-accent), 16%, 12%); */
+  --showcase-card-color: #f0f0f0;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   height: 100%;
-  scrollbar-color: var(--color-accent2) var(--color-bg2);
+  scrollbar-color: var(--color-accent) var(--color-bg2);
   accent-color: var(--color-accent);
 }
 
@@ -52,9 +62,9 @@ body {
   min-width: 300px;
   line-height: 1.5;
   word-wrap: break-word;
-  font-family: RecVar, system-ui, sans-serif;
-  font-weight: 390;
-  font-feature-settings: "liga", "kern";
+  font-family: Futura PT, "Helvetica", "Arial", sans-serif;
+  /* font-weight: 390; */
+  /* font-feature-settings: "liga", "kern"; */
   background: var(--color-bg);
   color: var(--color-fg);
 }
@@ -100,6 +110,13 @@ h4 {
 
 pre {
   font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: JetBrains Mono, Arial, Helvetica, sans-serif;
 }
 
 code {
@@ -231,7 +248,7 @@ resp-cont[data-pad] img {
   font-size: 1.15rem;
   background: var(--color-accent);
   color: var(--color-accent2);
-  text-shadow: hsl(var(--hue-accent), 100%, 60%) 0 1px 0;
+  /* text-shadow: var(--color-accent3) 0 1px 0; */
   padding: 1rem 1ch calc(1rem + 24px * 1.5);
   --mask:
     radial-gradient(43.27px at 50% calc(100% - 60.00px), #000 99%, #0000 101%) calc(50% - 48px) 0/96px 100%,
@@ -243,7 +260,7 @@ resp-cont[data-pad] img {
 #header ::selection {
   background: #fff;
   color: var(--color-accent);
-  text-shadow: none;
+  /* text-shadow: none; */
 }
 
 #header * {
@@ -253,6 +270,7 @@ resp-cont[data-pad] img {
 
 #header a {
   color: var(--color-accent3);
+  font-weight: 400;
 }
 
 #header nav {
@@ -370,8 +388,9 @@ main {
   top: 100vh;
   text-align: center;
   background: var(--color-bg2);
-  padding: calc(1rem + 24px * 1.5) 1rem 1rem;
+  padding: 1rem;
   font-size: .9rem;
+  border-top: 1px var(--color-accent) solid
 }
 
 #footer p {
@@ -380,19 +399,24 @@ main {
 
 .showcase-card,
 .post-content>pre,
-.post-content>details>pre,
-.open-more {
-  background: hsl(var(--hue-accent), 16%, 12%);
+.post-content>details>pre {
   padding: 1.4rem 1rem;
   margin: -.2rem 0;
 }
 
-.showcase-card,
-.open-more {
+.showcase-card.showcase-project,
+.showcase-card.showcase-post {
+  background-color: var(--showcase-card-color);
+  box-shadow: 0 0 5px gainsboro;
+  border: 1px #dedede solid;
   transition: ease .5s transform;
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 5px;
+}
+
+.showcase-readmore {
+  text-align: right;
 }
 
 @media screen and not (prefers-reduced-motion) {
