@@ -1,0 +1,22 @@
+site:
+  author: Tatiana
+  title: Logging my way
+  feedTitle: Logging my way
+  pfp: /assets/icons/footprint.svg
+  color: "#d4d4d4"
+
+contact_links:
+  - name: Email
+    title: tatia.dev@gmail.com
+    url: mailto:tatia.dev@gmail.com
+  - name: Github
+    title: "@tatia-dev"
+    url: https://github.com/tatia-dev
+
+footer_links:
+  - name: home
+    url: /
+  - name: blog
+    url: /blog/
+  - name: about this site
+    url: /about/

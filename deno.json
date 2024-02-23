@@ -1,0 +1,31 @@
+{
+  "tasks": {
+    "lume": "echo \"import 'lume/cli.ts'\" | deno run -A - --config _lume/config.ts",
+    "build": "deno task lume",
+    "serve": "deno task lume -s",
+    "preview": "deno run -A _lume/entrypoint.ts",
+    "deploy": "deno run --env -A https://deno.land/x/deploy@1.10.3/deployctl.ts deploy"
+  },
+  "imports": {
+    "lume/": "https://deno.land/x/lume@v2.0.3/",
+    "std/": "https://deno.land/std@0.208.0/",
+    "https://deno.land/std@0.205.0/": "https://deno.land/std@0.208.0/",
+    "https://deno.land/std@0.170.0/": "https://deno.land/std@0.208.0/"
+  },
+  "compilerOptions": {
+    "types": [
+      "lume/types.ts"
+    ]
+  },
+  "deploy": { 
+    "project": "loggingmyway", 
+    "entrypoint": "_lume/entrypoint.ts", 
+    "include": [ 
+      "./_lume/entrypoint.ts", 
+      "./_lume/_site"
+    ], 
+	"exclude": [ 
+      "**/node_modules"
+    ] 
+  }
+}

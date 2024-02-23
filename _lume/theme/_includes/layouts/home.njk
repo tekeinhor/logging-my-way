@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+mainClass: h-card
+---
+
+{% import "macros/preview.njk" as macro_preview %}
+{% import "macros/tags.njk" as macro_tags %}
+
+<div class="home-content">
+	{{ content | safe }}
+</div>
+
+<h2>Projects</h2>
+
+<ul class="showcase-grid">
+	{% for proj in search.pages("type=project", "date=desc") | take(2) %}
+	{{ macro_preview.preview(proj) }}
+	{% endfor %}
+</ul>
+
+<h2>Latest blog posts</h2>
+
+<div class="h-feed">
+	<ul class="showcase-grid">
+		{% for post in search.pages("type=post", "date=desc") | take(2) %}
+		{{ macro_preview.preview(post) }}
+		{% endfor %}
+	</ul>
+	<a href="/blog/" class="u-uid u-url open-more">Read more posts →</a>
+</div>

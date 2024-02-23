@@ -1,0 +1,15 @@
+---
+# This layout is used to list all posts and pages by tag
+layout: layouts/base.njk
+mainClass: h-feed
+---
+
+{% import "macros/preview.njk" as blog %}
+
+<h1>{{ title }}</h1>
+
+<ul class="showcase-grid">
+	{%- for post in search.pages(search_query, "date=desc") %}
+	{{ blog.preview(post) }}
+	{%- endfor %}
+</ul>

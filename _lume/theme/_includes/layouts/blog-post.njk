@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+---
+
+{% import "macros/tags.njk" as macro_tags %}
+
+<article class="h-entry">
+	<h1 class="post-title p-name">{{ title }}</h1>
+	{%- if desc %}
+	<p class="post-subhead p-summary">{{ desc }}</p>
+	{%- endif %}
+	<p class="post-meta">
+		<time datetime="{{ date | date }}" class="dt-published">{{ date | date('HUMAN_DATE') }}</time>
+		✦ {{ readingInfo.minutes }} min read
+		<br />
+		{{ macro_tags.show_tags(tags) }}
+	</p>
+
+
+	<div class="e-content post-content">
+		{{ content | safe }}
+	</div>
+</article>
+
+<a href="/blog/" class="open-more">Read more posts →</a>
