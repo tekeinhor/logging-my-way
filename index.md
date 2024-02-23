@@ -4,10 +4,8 @@ layout: layouts/home.njk
 
 # Hello!
 
-Hi, I'm <a href="/" class="p-name u-uid u-url" rel="me">Tatiana</a>!
+Hi, I'm <a href="/" class="p-name u-uid u-url" rel="me">Tatiana</a> and I am an MLOps engineer.  For those who don't know, it is software engineer in the ML (Machine Learning) / AI (Artificial Intelligence) 🤖 realm who loves deployment, hence the Ops part. I live in Lille, France 🇫🇷.
+ 
+I love discussing software architecture, engineering best practices, and sometimes even workplace politics. The last decades have taught me that the main value of ML projects lies in your ability to actually build something, a product 👀, out of them (at least in the corporate world). However, most of the tutorials on the internet just talk about notebooks and model optimisation. But how do you actually deploy your project? We discuss this and more in the [blog](/blog) sections.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. 
-
-Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. 
-
-Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+When I am not working, I am probably dancing 🩰, doing crossfit™️ 🏋️‍♂️, or sleeping 💤.

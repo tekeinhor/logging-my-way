@@ -1,6 +1,6 @@
 title: Tag Generator
 external_url: https://github.com/tekeinhor/tag-generator
-desc: Some description
+desc: An end-to-end ML project from model creation to its deployement on AWS (ECS Fargate) using Terraform.
 icon: github
 tags:
 - mlops

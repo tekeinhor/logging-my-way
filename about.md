@@ -3,49 +3,31 @@ layout: layouts/about.njk
 title: About this site
 ---
 
-Here you can find various behind-the-scenes details about this website:
+You will find below the different tools used to create, build and deploy this website.
 
 ## Inspiration
-
-Many layout ideas on the home page were inspired by the website of my pal [Sage](https://www.wavebeem.com/).
-They also drew my profile picture :)
+This website design and layout is an inspiration of [Val Packet blog](https://val.packett.cool/) and [Killed by tech](https://killedby.tech/).
 
 ## Hosting
 
-This website is currently hosted by [Deno Deploy](https://deno.com/deploy).
+This website is currently hosted by [Deno Deploy](https://deno.com/deploy)![](/assets/icons/deno.svg){width="20"}.
 
-No third party embeds. This is even enforced with `Content-Security-Policy`.
-And yes, this means there are no analytics whatsoever.
+There are no third party embeds and this is enforced with `Content-Security-Policy`.
+It means, there are no analytics whatsoever.
 
 ## Content management
 
-This website is generated with [Lume](https://lume.land/), a static site generator that runs on [Deno](https://deno.land/).
+This website is generated with [Lume](https://lume.land/)![](/assets/icons/lume.png){width="25"}, a static site generator that runs on ![](/assets/icons/deno.svg){width="20"} [Deno](https://deno.land/).
 
 
-## Typefaces
+## Fonts
 
-[Futura PT](https://fonts.adobe.com/fonts/futura-pt)
+- The headers uses [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+- Anything else uses [Futura PT](https://fonts.adobe.com/fonts/futura-pt)
 
-[JetBrains Mono](https://www.jetbrains.com/lp/mono/)
-
-<!-- This website is set in [Recursive by Arrow Type](https://www.recursive.design/)…
-yes, including code snippets: this is a variable font that has "monospace-ness" as a variability axis.
-
-Also, [Silkscreen](https://kottke.org/plus/type/silkscreen/) is used for the tiny nostalgic badges at the bottom of the page. -->
 
 ## Icons
 
-Brand icons are from [Simple Icons](https://simpleicons.org/)
-while others like "email" are from [Font Awesome](https://fontawesome.com/).
+- Brand icons are from [Simple Icons](https://simpleicons.org/)
+- [Font Awesome](https://fontawesome.com/) and [Google Fonts](https://fonts.google.com/) are also used throughout the site.
 
-## Helpful tools and tricks
-
-- [Wavy Shapes generator](https://css-generators.com/wavy-shapes/)
-- [nnnoise](https://fffuel.co/nnnoise/)
-- [fonttools](https://github.com/fonttools/fonttools) (`pyftsubset`)
-- [Building a combined CSS-aspect-ratio-grid](https://9elements.com/blog/building-a-combined-css-aspect-ratio-grid/)
-
-## Browser support
-
-This website is [best viewed in Firefox](https://www.mozilla.org/en-US/firefox/new/)!
-But all reasonably popular and recent browsers should be supported.
