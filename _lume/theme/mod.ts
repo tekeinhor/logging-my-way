@@ -7,6 +7,10 @@ import nunjucks from "lume/plugins/nunjucks.ts";
 import date from "lume/plugins/date.ts";
 import read_info from "lume/plugins/reading_info.ts";
 import shikiji from "https://deno.land/x/lume_shikiji@0.0.8/mod.ts";
+import toc from "https://deno.land/x/lume_markdown_plugins/toc.ts";
+import footnotes from "https://deno.land/x/lume_markdown_plugins/footnotes.ts";
+
+
 
 export default () => {
   return (site: Site) => {
@@ -48,6 +52,8 @@ export default () => {
         ".pdf",
         ".json",
       ])
+      .use(toc())
+      .use(footnotes())
       .use(nunjucks())
       .use(date())
       .use(read_info())
