@@ -15,6 +15,7 @@
   --color-accent2: #1a6ece;
   --color-accent3: #3D3D3D;
   --showcase-card-color: #f0f0f0;
+  --color-code: #e2ddddbf;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   height: 100%;
@@ -89,7 +90,7 @@ h4 {
 }
 
 pre {
-  font-family: inherit;
+  font-family: JetBrains Mono;
 }
 
 h1,
@@ -100,12 +101,11 @@ h4 {
 }
 
 code {
-  font-family: inherit;
-  --fnt-mono: 1;
-  --fnt-casl: .6;
+  font-family: JetBrains Mono;
+  font-size: 0.8rem;
   word-wrap: normal;
   white-space: pre-wrap;
-  font-feature-settings: "dlig", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss08", "ss11", "ss12";
+  background-color: var(--color-code);
 }
 
 ul {
