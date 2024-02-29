@@ -17,15 +17,15 @@
       "lume/types.ts"
     ]
   },
-  "deploy": { 
-    "project": "loggingmyway", 
-    "entrypoint": "_lume/entrypoint.ts", 
-    "include": [ 
-      "./_lume/entrypoint.ts", 
+  "deploy": {
+    "project": "loggingmyway",
+    "entrypoint": "_lume/entrypoint.ts",
+    "include": [
+      "./_lume/entrypoint.ts",
       "./_lume/_site"
-    ], 
-	"exclude": [ 
+    ],
+	"exclude": [
       "**/node_modules"
-    ] 
+    ]
   }
 }
