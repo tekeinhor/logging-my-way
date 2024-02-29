@@ -25,6 +25,8 @@ globalThis.customElements.define(
      */
     #placeholder;
 
+    #needsUpdate = true;
+
     properties = {
       repeat: 2,
       "shape-height": 20,
@@ -74,15 +76,25 @@ globalThis.customElements.define(
       });
     }
 
+    /**
+     * Observe element size when added to the DOM
+     */
     connectedCallback() {
       this.#resizeObserver.observe(this);
     }
 
+    /**
+     * Unobserve element size when removed to the DOM
+     */
     disconnectedCallback() {
       this.#resizeObserver.unobserve(this);
     }
 
     /**
+     * Listen attribute changes
+     *
+     * Properties are updated from CSS variables
+     * for easier customization
      *
      * @param {string} name
      * @param {string} oldValue
@@ -92,6 +104,7 @@ globalThis.customElements.define(
       switch (name) {
         case "height": {
           this.#placeholder.style.height = `${newValue}px`;
+          this.#needsUpdate = true;
           break;
         }
         case "style": {
@@ -102,55 +115,82 @@ globalThis.customElements.define(
       this.draw();
     }
 
+    /**
+     * Fetch properties from CSS variables
+     */
     #updateProperties() {
       Object.entries(this.properties).forEach(([key, oldValue]) => {
-        const newValue = this.style.getPropertyValue(`--${key}`);
-        console.log(key, newValue);
-        if (!newValue) return;
-        this.properties[key] =
-          typeof oldValue === "number" ? parseFloat(newValue) : newValue;
+        const propertyValue = this.style.getPropertyValue(`--${key}`);
+        if (!propertyValue) return;
+
+        const newValue =
+          typeof oldValue === "number"
+            ? parseFloat(propertyValue)
+            : propertyValue;
+
+        if (newValue === oldValue) return;
+
+        this.properties[key] = newValue;
+        this.#needsUpdate = true;
       });
     }
 
+    /**
+     * Draw sinusoidal wave
+     *
+     * Perform a redraw only when needsUpdate = true
+     */
     draw() {
+      if (!this.#needsUpdate) return;
+
+      // Enhance canvas resolution based on device pixel ratio
       const pixelRatio = globalThis.devicePixelRatio ?? 1;
       this.#canvas.width = this.offsetWidth * pixelRatio;
       this.#canvas.height = this.offsetHeight * pixelRatio;
 
-      const width = this.#canvas.width;
-      const height = this.#canvas.height;
-
+      // Initialize variable
+      const { width, height } = this.#canvas;
       const offsetY = height * 0.5 + this.properties["offset-y"];
 
-      this.#ctx.fillStyle = this.properties["bg-color"];
-      this.#ctx.fillRect(0, 0, width, height);
+      let progress = 0
+      let angle = 0
+      let x = 0
+      let y = 0
 
+      // Create path which will be used to draw the wave
       const path = new Path2D();
       path.moveTo(0, 0);
 
       for (let i = 0; i < width; i++) {
-        const t = i / width;
-        const x = Math.cos(
-          t * Math.PI * this.properties.repeat + this.properties["offset-x"]
-        );
-        const y =
-          Math.sin(t * Math.PI * this.properties.repeat + this.properties["offset-x"]) *
-          this.properties["shape-height"];
+        progress = i / width;
+        angle = progress * Math.PI * this.properties.repeat;
+        angle += this.properties["offset-x"];
+        x = Math.cos(angle);
+        y = Math.sin(angle) * this.properties["shape-height"];
         path.lineTo(x + i, y + offsetY);
       }
 
       path.lineTo(width, 0);
       path.closePath();
 
+      // Fill the entire canvas with a background color
+      this.#ctx.fillStyle = this.properties["bg-color"];
+      this.#ctx.fillRect(0, 0, width, height);
+
+      // Draw wave path with a offset
       if (this.properties["stroke-width"] > 0) {
         this.#ctx.fillStyle = this.properties["stroke-color"];
         this.#ctx.fill(path);
         this.#ctx.setTransform(1, 0, 0, 1, 0, -this.properties["stroke-width"]);
       }
 
+      // Draw the wave a second time without offset
       this.#ctx.fillStyle = this.properties["fg-color"];
       this.#ctx.fill(path);
       this.#ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+      // Reset needsUpdate
+      this.#needsUpdate = false;
     }
   }
 );
