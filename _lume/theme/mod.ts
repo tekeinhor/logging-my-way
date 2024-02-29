@@ -9,6 +9,7 @@ import read_info from "lume/plugins/reading_info.ts";
 import shikiji from "https://deno.land/x/lume_shikiji@0.0.8/mod.ts";
 import toc from "https://deno.land/x/lume_markdown_plugins/toc.ts";
 import footnotes from "https://deno.land/x/lume_markdown_plugins/footnotes.ts";
+import image_display from "./_plugins/image-display.ts";
 
 
 
@@ -57,6 +58,7 @@ export default () => {
       .use(nunjucks())
       .use(date())
       .use(read_info())
+      .use(image_display())
       .use(shikiji({
         highlighter: {
           langs: ["bash", "python", "yaml", "c", "rust"],
