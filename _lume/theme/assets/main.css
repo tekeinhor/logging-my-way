@@ -228,19 +228,7 @@ resp-cont[data-pad] img {
 }
 
 #header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 1.5rem;
-  background: var(--color-accent);
-  color: var(--color-accent2);
-  padding: 1rem 1ch calc(1rem + 24px * 1.5);
-  --mask:
-    radial-gradient(43.27px at 50% calc(100% - 60.00px), #000 99%, #0000 101%) calc(50% - 48px) 0/96px 100%,
-    radial-gradient(43.27px at 50% calc(100% + 36.00px), #0000 99%, #000 101%) 50% calc(100% - 24px)/96px 100% repeat-x;
-  -webkit-mask: var(--mask);
-  mask: var(--mask);
+  position: relative;
 }
 
 #header ::selection {
@@ -251,6 +239,18 @@ resp-cont[data-pad] img {
 #header a {
   color: var(--color-accent3);
   font-weight: 400;
+}
+
+.header__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 1.5rem;
+  color: var(--color-accent2);
+  padding: 1rem 1ch calc(1rem + 24px * 1.5);
+  position: relative;
+  z-index: 1;
 }
 
 #home {
@@ -354,14 +354,17 @@ main {
 #footer {
   position: sticky;
   top: 100vh;
-  text-align: center;
-  background: var(--color-bg2);
-  padding: 1rem;
-  font-size: .9rem;
-  border-top: 1px var(--color-accent) solid
 }
 
-#footer p {
+.footer__content {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  font-size: .9rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer__content p {
   margin: .25rem;
 }
 
@@ -565,4 +568,12 @@ main {
 
 .icon-footprint path {
   fill: var(--color-accent2);
+}
+
+#header fu-wave,
+#footer fu-wave {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
 }
