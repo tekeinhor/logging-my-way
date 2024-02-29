@@ -150,7 +150,7 @@ globalThis.customElements.define(
 
       // Initialize variable
       const { width, height } = this.#canvas;
-      const offsetY = height * 0.5 + this.properties["offset-y"];
+      const offsetY = height * 0.5 + this.properties["offset-y"] * pixelRatio;
 
       let progress = 0
       let angle = 0
@@ -164,9 +164,9 @@ globalThis.customElements.define(
       for (let i = 0; i < width; i++) {
         progress = i / width;
         angle = progress * Math.PI * this.properties.repeat;
-        angle += this.properties["offset-x"];
+        angle += this.properties["offset-x"] * pixelRatio;
         x = Math.cos(angle);
-        y = Math.sin(angle) * this.properties["shape-height"];
+        y = Math.sin(angle) * this.properties["shape-height"] * pixelRatio;
         path.lineTo(x + i, y + offsetY);
       }
 
