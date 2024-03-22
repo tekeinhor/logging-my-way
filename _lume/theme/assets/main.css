@@ -27,6 +27,8 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-variation-settings: "MONO" var(--fnt-mono), "CASL" var(--fnt-casl);
 }
 
@@ -45,7 +47,7 @@ body {
   min-width: 300px;
   line-height: 1.5;
   word-wrap: break-word;
-  font-family: Futura PT, "Helvetica", "Arial", sans-serif;
+  font-family: "Futura PT", "Helvetica", "Arial", sans-serif;
   background: var(--color-bg);
   color: var(--color-fg);
 }
@@ -557,9 +559,8 @@ main {
   text-transform: uppercase;
   border-radius: 30px;
   padding: 0.15rem 0.5rem;
-  font-weight: 500;
+  font-weight: 600;
   font-size: .7rem;
-  -webkit-font-smoothing: antialiased;
 }
 
 .icon-footprint {
