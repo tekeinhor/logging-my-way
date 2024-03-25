@@ -120,6 +120,10 @@ ul ul {
   padding-left: 2ch;
 }
 
+sup {
+  color: var(--color-accent2);
+}
+
 details summary {
   display: block;
   position: relative;

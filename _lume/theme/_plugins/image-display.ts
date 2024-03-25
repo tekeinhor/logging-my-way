@@ -15,10 +15,12 @@ export default function image_display() {
             flex-direction: column;
             gap: 1rem;
           }
-
+          
           .image-display img[image-display] {
             max-width: 100%;
             object-fit: contain;
+            border: 2px #e8e8e8 solid;
+            border-radius: 10px;
           }
 
           .image-display__caption {
