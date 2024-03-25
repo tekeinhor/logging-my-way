@@ -6,11 +6,12 @@ import { relative } from "lume/deps/path.ts";
 import nunjucks from "lume/plugins/nunjucks.ts";
 import date from "lume/plugins/date.ts";
 import read_info from "lume/plugins/reading_info.ts";
-import shikiji from "https://deno.land/x/lume_shikiji@0.0.8/mod.ts";
+import shiki from "https://deno.land/x/lume_shiki@0.0.12/mod.ts";
+import shikiLang from "https://deno.land/x/lume_shiki@0.0.13/plugins/lang/mod.ts";
+import shikiCopy from "https://deno.land/x/lume_shiki@0.0.13/plugins/copy/mod.ts";
+import shikiCSS from "https://deno.land/x/lume_shiki@0.0.13/plugins/css/mod.ts";
 import toc from "https://deno.land/x/lume_markdown_plugins/toc.ts";
 import image_display from "./_plugins/image-display.ts";
-
-
 
 export default () => {
   return (site: Site) => {
@@ -24,7 +25,7 @@ export default () => {
     for (const entry of entries) {
       site.remoteFile(
         relative(dirname, entry.path),
-        import.meta.resolve(entry.path),
+        import.meta.resolve(entry.path)
       );
     }
 
@@ -33,7 +34,7 @@ export default () => {
       async (name) => {
         return `/assets/${name}?v=1234`;
       },
-      { type: "tag", async: true },
+      { type: "tag", async: true }
     );
 
     site.filter("take", (x, n) => x.slice(0, n));
@@ -57,12 +58,17 @@ export default () => {
       .use(date())
       .use(read_info())
       .use(image_display())
-      .use(shikiji({
-        highlighter: {
-          langs: ["bash", "python", "yaml", "c", "rust", "json"],
-          themes: ["light-plus"],
-        },
-        theme: "light-plus",
-      }));
+      .use(
+        shiki({
+          highlighter: {
+            langs: ["bash", "python", "yaml", "c", "rust", "json"],
+            themes: ["light-plus"],
+          },
+          theme: "light-plus",
+        })
+      )
+      .use(shikiCSS())
+      .use(shikiLang())
+      .use(shikiCopy());
   };
 };
