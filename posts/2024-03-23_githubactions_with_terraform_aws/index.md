@@ -24,41 +24,53 @@ So need to create AWS `Access Key ID` and `Secret Access Key`  and store them in
 
 ## Config on AWS
 
-- step 1: [create an IP](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
-	- got to IAM > Identity Provider
+1) step 1: [create an IP](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
+	- go to `IAM > Identity Providers`
 	- create IP
 	- you will need:
 		- Provider URL:  https://token.actions.githubusercontent.com
 		- Audience: sts.amazonaws.com
+  - Add tags (optional)
 
-step 2: create your role
-- selected trusted entity
-	- json
-	- 
+![AWS IAM > Identity Providers Creation](./assets/iam_ip_create.png){image-display}
 
+
+2) : create the role that github actions will assume
+
+
+- go to `IAM > Roles > Create Role`
+-  selected trusted entity
+![AWS IAM > Identity Providers Creation](./assets/iam_roles_1.png){image-display}
+And in the **Custom trust policy** section copy paste the following json
 ```json
-	{
-	"Version": "2012-10-17",
-	"Statement": [
-		{
-			"Sid": "Statement1",
-			"Effect": "Allow",
-			"Principal": {
-                "Federated": "arn:aws:iam::<accountId>:oidc-provider/token.actions.githubusercontent.com"
-            },
-			"Action": "sts:AssumeRoleWithWebIdentity",
-			"Condition": {
-                "StringEquals": {
-                    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
-                },
-                "StringLike": {
-                    "token.actions.githubusercontent.com:sub": "repo:<userName>/<repoName>:*"
-                }
-            }
-		}
-	]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Statement1",
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::<accountId>:oidc-provider/token.actions.githubusercontent.com"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+        },
+        "StringLike": {
+          "token.actions.githubusercontent.com:sub": "repo:<userName>/<repoName>:*"
+        }
+      }
+    }
+  ]
 }
 ```
+
+2) Add permissions (managed one)
+3) Choose your role name, description and add tags
+
+
+
 
 - add policy
 
