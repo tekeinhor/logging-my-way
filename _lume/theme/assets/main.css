@@ -1,6 +1,7 @@
 @import url("./jetbrains-mono.css");
 @import url("./futura-pt.css");
 @import url("./tag-colors.css");
+@import url("./code-block.css");
 
 :root {
   --fnt-mono: 0;
@@ -100,11 +101,6 @@ h2,
 h3,
 h4 {
   font-family: JetBrains Mono, Arial, Helvetica, sans-serif;
-}
-
-.shiki {
-  overflow-x: auto;
-  border-radius: 10px;
 }
 
 code {
