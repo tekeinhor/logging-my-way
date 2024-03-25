@@ -60,9 +60,9 @@ export default () => {
       .use(shikiji({
         highlighter: {
           langs: ["bash", "python", "yaml", "c", "rust", "json"],
-          themes: ["github-dark"],
+          themes: ["light-plus"],
         },
-        theme: "github-dark",
+        theme: "light-plus",
       }));
   };
 };

@@ -102,11 +102,20 @@ h4 {
   font-family: JetBrains Mono, Arial, Helvetica, sans-serif;
 }
 
+.shiki {
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
 code {
-  font-family: JetBrains Mono;
+  font-family: Menlo;
   font-size: 0.8rem;
   word-wrap: normal;
-  white-space: pre-wrap;
+}
+
+code * {
+  -webkit-font-smoothing: initial;
+  -moz-osx-font-smoothing: initial;
 }
 
 ul {
