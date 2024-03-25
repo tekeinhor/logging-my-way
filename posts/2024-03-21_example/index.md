@@ -4,60 +4,69 @@ desc: |
     In this article, I will describe the differents steps of an Machine Learning (ML) project for question tagging using stackoverflow data.
 tags:
   - mlops
-  - aws
-  - cloud
   - architecture
-  - python
 ---
 
+I wanted a toy project to show the different steps a machine learning (ML) project goes through "in real life". So I created the [tag generator project](https://github.com/tekeinhor/tag-generator). I didn't really focused on the ML side. I haven't really fine-tuned the model. I was more concerned with the engineering and ops aspects of ML projects.
+Before we dive into the various steps I took to complete this project, I would first like to discuss the architecture of the [MLOps](/posts/mlops)-based ML project.
 
-## Introduction
-I wanted a toy project to showcase the different steps that a Machine Learning (ML) project would take in a corporate setup.
-So I created the [tag generator project](https://github.com/tekeinhor/tag-generator). I didn't really focused on the ML side. I didn't really fined tuned the model.
-I was more interested in offering an engineering view on ML projects.
+## MLOps-based architecture for ML projects
+![MLOps-based architecture for ML projects](./assets/mlops_lifecycle.png){image-display}
 
-![MLOps pipeline lifecycle](./assets/mlops_lifecycle.png){image-display}
+The image above is what I think a complete ML pipeline (should) look like when fundamental principles of software engineerning and devops are applied. A productive, maintainable, reliable and efficient project requires the various components shown in the diagram. 
+The components are:
+1) A **data pipeline**: Data cleaning and processing are the first steps, followed by "Feature Creation". (Some people may add a Feature Store here). I separated this block from the Training pipeline's one to emphasize that 'Feature Creation' is also a necessary step when serving the model.
 
-The image above represent my view of a what a complete ML pipeline (should) look like when the fundamental principles of software engineerning and devops are applied. You need the different building blocks, we see in the figure, to have a productive, maintainable, reliable and efficient project. Those building blocks are:
-1) A **data pipeline**: it is where the data cleaning and processing start. It is then followed by the feature engineering step. (Some people will add the feature store here). I separated this block from the Training pipeline block to highlight the fact that "Feature creation" is also a step needed when serving the model. 
-2) A **(re)training pipeline**: The star of the show. It is where the magic happens they say. It is where the model is created and engineered.
-3) A **CICD**: Because eveything we are talking about is actual code, it is where we make sure that we follow the basic rule of code integration, testing etc. 
-4) A **model registry**: where we store the model. I can be a simple AWS S3 bucket to a more sophisticated tool like proposed in MLFlow. 
-5) A **model serving pipeline**: here we need think about how our model is going to be used and create the appropriate service for that.
-6) A **performance monitoring setup**: 
+2) A **(re)training pipeline**: This is where the magic happens, they say. This is where the model is created and engineered.
 
-Depending on the level of automation of the blocks, we speak of "maturity level". For more info about Maturity level, you can read [this article](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) from Google Cloud Architecture Center. In this project, I focused on blocks **3** and **5**. And hopefully in the future, I could add **1**, **2** and **6**.
+3) A **CICD**: Because eveything we are discussing is actual code,  it is important to follow the basic rules of code integration, testing and deployment.
+
+4) A **model registry**: This is where we store and version the model and its metadata. The storage solution can range from a basic AWS S3 bucket to a more advanced option like the one offered by [MLFlow](https://mlflow.org/docs/latest/model-registry.html). 
+
+5) A **model serving pipeline**: It is important to consider how the model will be used, and develop the service accordingly. The prediction service will be designed in *batch*, *real-time* or *streaming* mode depending on the size of the data(on which the predictions will be performed), latency tolerance of the result, and the availability of computation resources. 
+
+6) A **performance monitoring setup**: This is where we collect metrics to assess the performance of the model and the prediction service global health. Alerts can be created and retraining can be triggered automatically based on the alerts. This is based on the observability concept, popular in Site Reliability Engineering (SRE).
+
+It is important to note that it is still possible to achieve a working project without having all of these components in place.
+The level of automation of the various components determines the maturity level of the project. For additional information on maturity level, please refer to [this article](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) from Google Cloud Architecture Center.
+
+For the Tag generator project, I concentrated on blocks **3** and **5**.  I hope to include **1**, **2** and **6** in the future.
 
 ## The Tag generator project
-Below I describe the different steps I took to create the project. Some of those steps will, progressively, become fully fleged articles, where I will detail my choices, share my perspectives or write tutorials.
+The Tag generator project is a Natural Language Processing (NLP) ML project. The goal is to automatically assign tags to StackOverflow questions. I used the [Stack Exchange Data Dump](https://archive.org/details/stackexchange) which is an anonymized dump of all user-contributed content on the Stack Exchange Network, of which StackOverflow is a part.
+
+Below, I describe the steps I took to create the project. I assigned each step to its usual role in an organisation.
+Some of these steps will become fully-fledged articles where I will detail my choices, share my perspectives, or write tutorials.
 
 ### The "Data Scientist" job
-1) Find data and choose a problem to solve
+1) Find a dataset and choose a problem to solve
 2) Experiments with the dataset
 3) Create the model
+4) Serve the model through an API (real time data processing strategy)<sup>*</sup>
+5) Code the API and Dockerize it<sup>*</sup>
+6) Code the UI (user interface) and Dockerize it<sup>*</sup>
 
-### The "Software Engineer" job
-1) Structure the code using **monorepo**
+> **<sup>\*</sup>** Could be done by Data Scientist or a MLOps Engineer depending on the Data Scientist software engineering skills and/or appetency.
+
+### A **DevOps team member** job
+1) Choose to use a **monorepo** approach to code storage
 2) Setup a linting, formating and testing tool
-3) Implement **CICD** for linting, building, testing and deploying your python code (with **Github Actions**)
-4) Serving the model through an API (real time data processing strategy)
-5) Code the API and Dockerize it
-6) Code the UI (user interface) and Dockerize it
-7) Use a **semantic release** tool to automatically release your code and tag your docker accordingly. Add the process to your **CICD** pipeline.
+3) Implement **CICD** for linting, building, testing and deploying your python code: using in our case **Github Actions**
+4) Use a **semantic release** tool to automatically release your code and tag your docker accordingly. Add the process to your **CICD** pipeline.
 
 ### The **"MLOPs Engineer"** job
 1) Choose a deployment infrastructure: in our case **AWS**
-2) Setup your AWS account in order to use it with IaC (infrastucure as code) tool: in our case **Terraform**
-3) Choose how you organise your **Terraform** code
+2) Setup your AWS account in order to use it with Infrastucure as Code (IaC) tool: in our case **Terraform**
+3) Choose how you organise your Terraform code
 4) Implement a **CICD** pipeline for deploying your resource creation process on AWS using Terraform
-4) Create your users and give them rights with terraform
-5) Create an S3 bucket and use it a "basic" model registry
-6) Choose a model serving deployment architecture (An API deployed on AWS using Docker, ECR, ECS/Fargate)
+4) Create your users and give them rights with Terraform
+5) Create an S3 bucket and use it as a "basic" model registry
+6) Choose a model serving deployment architecture (An API deployed on AWS using **Docker, ECR, ECS Fargate**)
 7) Choose a UI deployment architecture (A streamlit web server deployed on AWS using Docker, ECR, ECS/Fargate)
-8) Make the UI and the API talk together
+8) Make the UI and the API talk to each other
 
 ## What's next?
-What I would want to do next? (a mix of **"Data Scientist"**  and **"MLOPs Engineering"** job)
+What I would want to do next?
 1) An automatic retraining job
 2) A Performance monitoring of the model
 3) A cost monitoring of the AWS infrastructure
