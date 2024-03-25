@@ -107,7 +107,6 @@ code {
   font-size: 0.8rem;
   word-wrap: normal;
   white-space: pre-wrap;
-  background-color: var(--color-code);
 }
 
 ul {
