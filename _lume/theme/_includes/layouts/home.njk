@@ -22,7 +22,7 @@ mainClass: h-card
 
 <div class="h-feed">
 	<ul class="showcase-grid">
-		{% for post in search.pages("type=post", "date=desc") | take(2) %}
+		{% for post in search.pages("type=post", "date=desc") | take(4) %}
 		{{ macro_preview.preview(post) }}
 		{% endfor %}
 	</ul>

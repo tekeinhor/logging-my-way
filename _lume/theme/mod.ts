@@ -13,6 +13,7 @@ import shikiCopy from "https://deno.land/x/lume_shiki@0.0.14/plugins/copy/mod.ts
 import shikiCSS from "https://deno.land/x/lume_shiki@0.0.14/plugins/css/mod.ts";
 import toc from "https://deno.land/x/lume_markdown_plugins/toc.ts";
 import image_display from "./_plugins/image-display.ts";
+import taskLists from "npm:markdown-it-task-lists"
 
 export default () => {
   return (site: Site) => {
@@ -40,6 +41,7 @@ export default () => {
 
     site.filter("take", (x, n) => x.slice(0, n));
     site.filter("drop", (x, n) => x.slice(n, x.length));
+    site.hooks.addMarkdownItPlugin(taskLists);
 
     site
       .copy("assets")
@@ -62,7 +64,7 @@ export default () => {
       .use(
         shiki({
           highlighter: {
-            langs: ["bash", "python", "yaml", "c", "rust", "json"],
+            langs: ["bash", "python", "yaml", "c", "rust", "json", "terraform"],
             themes: ["light-plus"],
           },
           theme: "light-plus",
@@ -71,6 +73,6 @@ export default () => {
       .use(shikiCSS())
       .use(shikiLang())
       .use(shikiCopy())
-      .use(shikiAttrib({ attribute: "title" }));
+      .use(shikiAttrib({ attribute: "filename" }));
   };
 };

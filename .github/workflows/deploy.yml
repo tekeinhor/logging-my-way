@@ -29,6 +29,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: _site
+          retention-days: 5
           path: |
             _lume/_site
             _lume/entrypoint.ts

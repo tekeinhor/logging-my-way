@@ -10,6 +10,7 @@
       "npm:markdown-it-attrs@4.1.6": "npm:markdown-it-attrs@4.1.6_markdown-it@14.0.0",
       "npm:markdown-it-deflist@3.0.0": "npm:markdown-it-deflist@3.0.0",
       "npm:markdown-it-ins@3.0.1": "npm:markdown-it-ins@3.0.1",
+      "npm:markdown-it-task-lists": "npm:markdown-it-task-lists@2.1.1",
       "npm:markdown-it@14.0.0": "npm:markdown-it@14.0.0",
       "npm:nunjucks@3.2.4": "npm:nunjucks@3.2.4",
       "npm:shiki@1.1.7": "npm:shiki@1.1.7",
@@ -112,6 +113,10 @@
       },
       "markdown-it-ins@3.0.1": {
         "integrity": "sha512-32SSfZqSzqyAmmQ4SHvhxbFqSzPDqsZgMHDwxqPzp+v+t8RsmqsBZRG+RfRQskJko9PfKC2/oxyOs4Yg/CfiRw==",
+        "dependencies": {}
+      },
+      "markdown-it-task-lists@2.1.1": {
+        "integrity": "sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==",
         "dependencies": {}
       },
       "markdown-it@14.0.0": {
