@@ -46,7 +46,7 @@ Some of these steps will become fully-fledged articles where I will detail my ch
 5) Code the API and Dockerize it<sup>*</sup>
 6) Code the UI (user interface) and Dockerize it<sup>*</sup>
 
-> **<sup>\*</sup>** Could be done by Data Scientist or a MLOps Engineer depending on the Data Scientist software engineering skills and/or appetency.
+> **<sup>\*</sup>** Could be done by a data scientist or an MLOps engineer, depending on the data scientist's software engineering skills.
 
 ### A **DevOps team member** job
 1) Choose to use a **monorepo** approach to code storage
@@ -56,14 +56,13 @@ Some of these steps will become fully-fledged articles where I will detail my ch
 
 ### The **"MLOPs Engineer"** job
 1) Choose a deployment infrastructure: in our case **AWS**
-2) Setup your AWS account in order to use it with Infrastucure as Code (IaC) tool: in our case **Terraform**
-3) Choose how you organise your Terraform code
-4) Implement a **CICD** pipeline for deploying your resource creation process on AWS using Terraform
+2) Setup your AWS account
+3) Choose your Infrastucure as Code (IaC) tool and organise your code accordingly: in our case **Terraform**
+4) [Implement a **CICD** pipeline for deploying your resource](/posts/openid_connect) creation process on AWS using Terraform
 4) Create your users and give them rights with Terraform
 5) Create an S3 bucket and use it as a "basic" model registry
-6) Choose a model serving deployment architecture (An API deployed on AWS using **Docker, ECR, ECS Fargate**)
-7) Choose a UI deployment architecture (A streamlit web server deployed on AWS using Docker, ECR, ECS/Fargate)
-8) Make the UI and the API talk to each other
+6) Package your applications (model serving API and UI) with Docker and push them to an image registry (ECR)
+7) Choose a [deployment architecture for the your applications](/posts/archi) (**Docker, ECR, ECS Fargate**)
 
 ## What's next?
 What I would want to do next?
