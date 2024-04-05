@@ -2,7 +2,7 @@
   "tasks": {
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A - --config _lume/config.ts",
     "build": "deno task lume",
-    "serve": "deno task lume -s",
+    "serve": "LUME_DRAFTS=\"true\" deno task lume -s",
     "preview": "deno run -A _lume/entrypoint.ts",
     "deploy": "deno run --env -A https://deno.land/x/deploy@1.10.3/deployctl.ts deploy"
   },
