@@ -137,6 +137,9 @@ resource "aws_iam_role_policy_attachment" "that" {
   policy_arn = aws_iam_policy.inline_policy.arn
 }
 ```
+
+
+
 ## Deployed it using Github Actions
 
 

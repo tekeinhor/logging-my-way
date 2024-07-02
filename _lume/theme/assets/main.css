@@ -2,6 +2,7 @@
 @import url("./futura-pt.css");
 @import url("./tag-colors.css");
 @import url("./code-block.css");
+@import url("./sticky-toc.css");
 
 :root {
   --fnt-mono: 0;
@@ -356,6 +357,10 @@ main {
   max-width: 80ch;
 }
 
+main.blog-post{
+  max-width: 90vw;
+}
+
 #footer {
   position: sticky;
   top: 100vh;
@@ -507,9 +512,6 @@ main {
   }
 }
 
-.post-content {
-  margin: 3rem auto;
-}
 
 .post-title,
 .post-meta,
@@ -585,4 +587,8 @@ main {
 
 .task-list-item {
   list-style: none;
+}
+
+span.email b {
+	display: none;
 }

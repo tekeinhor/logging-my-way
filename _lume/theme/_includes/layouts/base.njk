@@ -20,6 +20,7 @@
 	<body>
 		<header id="header">
 			{{ macro_wave.wave() }}
+			<fu-toc-highlighter></toc-highlighter>
 
 			<div class="header__content">
 				<a href="/" rel="home" id="home" {%- if url == "/" %} aria-current="page"{% endif %}>

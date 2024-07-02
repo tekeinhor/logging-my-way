@@ -1,0 +1,13 @@
+nav.toc {
+    position: sticky;
+    top: 33%;
+}
+
+div.post__content{
+    display: grid;
+    grid-template-columns: 1fr 48rem 1fr;
+}
+
+nav.toc a.active {
+    font-weight: bold;
+}
