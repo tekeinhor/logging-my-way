@@ -20,15 +20,16 @@ mainClass: blog-post
 				{{ macro_tags.show_tags(tags) }}
 			</p>
 		</div>
-		<div class="post__content">
-			<div class="hidden"></div>
+		<div class="post__body">
+			<div class="post__blank"></div>
 
-			<div class="e-content post-content">
+			<div class="e-content post__content">
 				{{ content | safe }}
 			</div>
 			<div class="post__toc">
 				{%- if toc.length%}
 				<nav class="toc">
+					<span>Table of contents</span>
 					<ol>
 						{% for item in toc %}
 						<li>

@@ -3,6 +3,7 @@
 @import url("./tag-colors.css");
 @import url("./code-block.css");
 @import url("./sticky-toc.css");
+@import url("./mobile.css");
 
 :root {
   --fnt-mono: 0;
@@ -80,10 +81,10 @@ figure,
 blockquote,
 details,
 .pic-row,
-.post-content>ul,
-.post-content>ol,
-.post-content>details>ul,
-.post-content>details>ol,
+.post__content>ul,
+.post__content>ol,
+.post__content>details>ul,
+.post__content>details>ol,
 article>ul,
 article>ol,
 h1,
@@ -379,8 +380,8 @@ main.blog-post{
 }
 
 .showcase-card,
-.post-content>pre,
-.post-content>details>pre {
+.post__content>pre,
+.post__content>details>pre {
   padding: 1.4rem 1rem;
   margin: -.2rem 0;
 }
