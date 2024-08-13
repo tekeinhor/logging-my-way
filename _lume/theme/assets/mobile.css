@@ -6,4 +6,7 @@
     main {
         padding: 1px 2.5ch;
     }
+    main.blog-post{
+        max-width: none;
+    }
 }

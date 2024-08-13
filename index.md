@@ -10,4 +10,50 @@ I love discussing software architecture, engineering best practices, and sometim
 
 When I am not working, I am probably dancing 🩰, doing crossfit™️ 🏋️‍♂️, or sleeping 💤.
 
-Send me an email <a href="mailto:tatia.dev@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+<style>
+    .hello {
+        display: flex;
+        justify-content: center;
+    }
+    .hello a{
+        background-color: var(--color-accent2);
+        color: white;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+        font-weight: 600;
+    }
+
+    .hello span{
+        padding: 5px 40px;
+        display: flex;
+        justify-content: center;
+    }
+    .hello__hover{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: bottom 0.25s;
+    }
+    .hello__placeholder {
+        visibility: hidden;
+    }
+
+    @media(hover:hover){
+        .hello a:hover .hello__hover {
+            bottom: -100%;
+        }
+    }
+</style>
+<div class="hello">
+    <a href="mailto:tatia.dev@gmail.com">
+        <div class="hello__placeholder">
+            <span> tatia.dev@gmail.com</span>
+        </div>
+        <div class="hello__hover">
+            <span>tatia.dev@gmail.com</span>
+            <span>Say hi 👋 </span>
+        </div>
+    </a>
+</div>
