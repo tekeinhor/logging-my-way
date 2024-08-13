@@ -9,19 +9,22 @@ tags:
   - aws
 ---
 
-
-
-[Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html) (Amazon Elastic Container Service) is a fully managed container orchestration service that helps you easily deploy, manage, and scale containerized applications. There are three options for running containers with Amazon ECS:
-- EC2: Deploy and manage your own cluster and manage yourself the EC2 instances on which everything is running)
-- Fargate: No server to think about
-- On-premises Virtual Machines (VM) or servers: you can register your own external on-premises server or Virtual Machine (VM), to your Amazon ECS cluster.
-
-Are there any alternative to ECS? With AWS, the answer is likely to be YES! Let see our options:
+Let's say you have created an API, and alongside you have created a UI. You packaged both as a container and now you are wondering, how to depoy them on AWS. What are your options:
 - Elastic Beanstalk: you upload the code you want to run, configure a few deployment settings, and let Amazon complete the process for getting the app running for you.
-- API Gateway + (Lambdas) : You can directly upload your code or use a container image. The lambda function execution time is limited to 15 minutes.
-- EKS: highest barrier to entry
+- ECS: fully managed container orchestration service that helps you easily deploy, manage, and scale containerized applications
+- S3 to host your UI and API Gateway + Lambda to deploy your API
+- EKS: managed Kubernetes service, highest barrier to entry
 
-Containerization, pricing etc
+My choice landed on ECS for several reasons:
+- native container orchestration tools
+- simpler than EKS
+- hold some freedom of configuration compared to beanstalk
+- feels less hacky than the combinaison of s3 hosting and lambda (although I believe for a simple API deployment API Gateway + Lambda is the way to go)
+
+There are three options for running containers with Amazon ECS:
+- [ ] EC2: Deploy and manage your own cluster and manage yourself the EC2 instances on which everything is running)
+- [x] Fargate: No server to think about
+- [ ] On-premises Virtual Machines (VM) or servers: you can register your own external on-premises server or Virtual Machine (VM), to your Amazon ECS cluster.
 
 ![UI API](./assets/ui-api.png){image-display}
 In this tutorial, we will use ECS Fargate to deploy two apps: an **API** that serve our ML model predictions and a **UI** that will allow us to perform predictions
