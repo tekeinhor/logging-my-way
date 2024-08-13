@@ -4,6 +4,7 @@
 @import url("./code-block.css");
 @import url("./sticky-toc.css");
 @import url("./mobile.css");
+@import url("./fonts/font-awesome/css/all.min.css");
 
 :root {
   --fnt-mono: 0;
@@ -107,8 +108,10 @@ h4 {
 
 code {
   font-family: Menlo;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   word-wrap: normal;
+  background-color: var(--color-code);
+  padding: 3px;
 }
 
 code * {
@@ -398,7 +401,7 @@ main.blog-post{
 
 .showcase-card h3 {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 10px;
 }
 
