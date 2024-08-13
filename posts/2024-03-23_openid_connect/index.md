@@ -19,12 +19,12 @@ The topic of the day is: **"how can you use Github Actions to create/update/dele
 Obviously (or not 😛) we need:
 - a github project
 - a terraform code and
-- a github actions workflow
+- a Github Actions workflow
 
-One question remains, **how can you give your github actions workflow rights to perform operations on AWS?**
+One question remains, **how can you give your Github Actions workflow rights to perform operations on AWS?**
 If you answer IAM users, I would reply, well yes, it is fast and easy but the [good practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in term of security is to provide access to your resources through identity federation.
 
-The idea is to avoid having to store credentials as long-lived GitHub secrets and instead use IAM roles and short-term credentials. The good news is AWS supports [OpenID Connect](https://openid.net/developers/how-connect-works/). With OpenID Connect (OIDC), the github actions workflow requests a short-lived access token directly from the cloud provider.
+The idea is to avoid having to store credentials as long-lived GitHub secrets and instead use IAM roles and short-term credentials. The good news is AWS supports [OpenID Connect](https://openid.net/developers/how-connect-works/). With OpenID Connect (OIDC), the Github Actions workflow requests a short-lived access token directly from the cloud provider.
 All we need to do is to configure a trust relationship, on the cloud side, that controls which workflows are able to request the access tokens. 
 
 ## Configure your AWS
@@ -42,7 +42,7 @@ All we need to do is to configure a trust relationship, on the cloud side, that 
     - A {{ aws.button("Identity provider added.", "success", "circle-check")}}  message is displayed
 
 
-2) create the role that github actions will assume
+2) create the role that Github Actions will assume
     - At the top of the console, in the search bar, search for and choose: {{ aws.button("IAM", "ternary")}} 
     - Choose **Roles**, from the Access Management navigation menu located on the left side of the console
     - Choose {{ aws.button("Create Role")}}
@@ -76,7 +76,7 @@ All we need to do is to configure a trust relationship, on the cloud side, that 
     ```
     - Replace `<accountId>`, `<userName>` and `<userName>` with your own values
   
-    <i class="fa-solid fa-circle-info" style="color:#008296"></i> using a wildcards (*) in the github repository allow requests from any branch. It is recommended to specify a branch.
+    <i class="fa-solid fa-circle-info" style="color:#008296"></i> using a wildcard (*) in the github repository allow requests from any branch. It is recommended to specify a branch.
     - Choose {{ aws.button("Next")}}
     - A page titled **Add permissions** is displayed, select the permissions you will need for your "Github Actions"
     - Choose {{ aws.button("Next")}}
@@ -106,7 +106,7 @@ Let assume our project has the following folder structure:
                ├── providers.tf
                └── variables.tf
 ```
-I use modules to organise my terraform folder. As this article is more on OIDC setup with Github Actions, I will not focus too much on terraform setup.
+I use modules to organise my terraform folder. As this article is more on OIDC setup with Github Actions, I will not focus too much on explaining my terraform setup.
 
 ### The terraform code
 
@@ -190,9 +190,9 @@ provider "aws" {
 }
 ```
 
-### The github actions
+### The Github Actions
 
-Let's create our github actions for deploying the terraform code
+Let's create our Github Actions for deploying the terraform code
 
 ```yaml{filename=deploy.yaml}
 # This is a basic workflow to help you get started with Actions
@@ -228,7 +228,7 @@ jobs:
           aws sts get-caller-identity
       ... # complete with other steps if needed
   ```
-  <i class="fa-solid fa-circle-info" style="color:#008296"></i> Your `AWS_ROLE_ARN` is a the same as the same as `<yourRoleName>` created in the above section. You can store it on your github secrets. `AWS_REGION` is your AWS region.
+  <i class="fa-solid fa-circle-info" style="color:#008296"></i> Your `AWS_ROLE_ARN` is a the same as the `<yourRoleName>` created in the above section. It is stored in github secrets. `AWS_REGION` is your AWS region. It is stored as a secret as well.
 
 We are done ! We have:
 - [x] Created an identity provider
