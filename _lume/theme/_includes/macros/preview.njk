@@ -11,6 +11,8 @@
 		<h3 class="p-name">
 			{% if post.type == "project" %}
 			<img width="20" src="/assets/icons/code-solid.svg" />
+			{% elif post.draft %}
+			<img width="20" src="/assets/icons/danger-solid.svg" />
 			{% else %}
 			<img width="15" src="/assets/icons/pen-fancy-solid.svg" />
 			{% endif %}

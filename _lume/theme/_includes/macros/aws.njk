@@ -1,0 +1,38 @@
+{%- macro button(text, type="primary", icon="") -%}
+  {% set css -%}
+    font-size: 14px;
+    font-family: Arial;
+    padding: 3px 10px;
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    {%- if type === "primary" -%}
+    background-color: #ff9900;
+    color: black;
+    font-weight: bold;
+    {% elif type === "secondary" -%}
+    background-color: white;
+    color: #545b64;
+    border: 1px solid #545b64;
+    border-radius: 2px;
+    font-weight: bold;
+    {% elif type === "ternary" -%}
+    background-color: white;
+    font-family: Monaco;
+    color: #d13212;
+    border: 1px solid rgb(118, 118, 118);
+    padding: 2px;
+    {% elif type === "success" -%}
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    padding: 4px;
+    {%- endif %}
+  {%- endset %}
+  <span style="{{ css | e }}">
+  {%- if icon.length > 0 -%}
+  <i class="fa-regular fa-{{icon}}"></i>
+  {%- endif -%}
+  {{ text }}
+  </span>
+{%- endmacro -%}

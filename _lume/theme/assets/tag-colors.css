@@ -1,6 +1,10 @@
 :root {
     --green-100: #dcfce7;
     --green-700: #15803d;
+    --lime-100: #ecfccb;
+    --lime-700: #4d7c0f;
+    --emerald-100: #d1fae5;
+    --emerald-700: #047857;
     --red-100: #fee2e2;
     --red-700: #b91c1c;
     --purple-100: #f3e8ff;
@@ -15,6 +19,8 @@
     --amber-700: #b45309;
     --blue-100: #dbeafe;
     --blue-700: #1d48d8;
+    --indigo-100: #e0e7ff;
+    --indigo-700: #4338ca;
     --pink-100: #fce7f3;
     --pink-700: #be185d;
 }
@@ -32,15 +38,21 @@
     --tag-fg-aws: var(--orange-700);
     --tag-bg-aws: var(--orange-100);
 
-    --tag-fg-ops: var(--red-700);
-    --tag-bg-ops: var(--red-100);
+    --tag-fg-ops: var(--amber-700);
+    --tag-bg-ops: var(--amber-100);
 
-    --tag-fg-mlops: var(--amber-700);
-    --tag-bg-mlops: var(--amber-100);
+    --tag-fg-mlops: var(--red-700);
+    --tag-bg-mlops: var(--red-100);
 
     --tag-fg-ml: var(--blue-700);
     --tag-bg-ml: var(--blue-100);
 
     --tag-fg-ci-cd: var(--pink-700);
     --tag-bg-ci-cd: var(--pink-100);
+
+    --tag-fg-github-actions: var(--indigo-700);
+    --tag-bg-github-actions: var(--indigo-100);
+
+    --tag-fg-architecture: var(--emerald-700);
+    --tag-bg-architecture: var(--emerald-100);
 }

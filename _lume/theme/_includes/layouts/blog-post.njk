@@ -1,25 +1,66 @@
 ---
 layout: layouts/base.njk
+mainClass: blog-post
 ---
 
 {% import "macros/tags.njk" as macro_tags %}
 
-<article class="h-entry">
-	<h1 class="post-title p-name">{{ title }}</h1>
-	{%- if desc %}
-	<p class="post-subhead p-summary">{{ desc }}</p>
-	{%- endif %}
-	<p class="post-meta">
-		<time datetime="{{ date | date }}" class="dt-published">{{ date | date('HUMAN_DATE') }}</time>
-		✦ {{ readingInfo.minutes }} min read
-		<br />
-		{{ macro_tags.show_tags(tags) }}
-	</p>
+<div class="blog__content">
+
+	<article class="h-entry">
+		<div class="post__header">
+			<h1 class="post-title p-name">
+				{%- if draft %}
+				DRAFT:
+				{%- endif %}
+				{{ title }}
+			</h1>
+			{%- if desc %}
+			<p class="post-subhead p-summary">{{ desc }}</p>
+			{%- endif %}
+			<p class="post-meta">
+				<time datetime="{{ date | date }}" class="dt-published">{{ date | date('HUMAN_DATE') }}</time>
+				✦ {{ readingInfo.minutes }} min read
+				<br />
+				{{ macro_tags.show_tags(tags) }}
+			</p>
+		</div>
+		<div class="post__body">
+			<div class="post__blank"></div>
+
+			<div class="e-content post__content">
+				{{ content | safe }}
+			</div>
+			<div class="post__toc">
+				{%- if toc.length%}
+				<nav class="toc">
+					<span>Table of contents</span>
+					<ol>
+						{% for item in toc %}
+						<li>
+							<a href="#{{ item.slug }}">{{ item.text }}</a>
+
+							{%- if item.children.length%}
+							<ul>
+								{% for child in item.children %}
+								<li>
+									<a href="#{{ child.slug }}">{{ child.text }}</a>
+								</li>
+								{% endfor %}
+							</ul>
+							{%- endif %}
+						</li>
+						{% endfor %}
+					</ol>
+				</nav>
+				{%- endif %}
+			</div>
+		</div>
 
 
-	<div class="e-content post-content">
-		{{ content | safe }}
-	</div>
-</article>
+	</article>
+
+</div>
+
 
 <a href="/blog/" class="open-more">Read more posts →</a>

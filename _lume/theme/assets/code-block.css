@@ -1,0 +1,68 @@
+.code-block {
+  --border-radius: 10px;
+  --btn-size: 1.1rem;
+}
+
+.code-block code {
+  background-color: transparent;
+  font-size: 0.8rem;
+}
+
+.code-block button.copy {
+  border: none;
+  cursor: pointer;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  position: relative;
+  padding: 0;
+}
+
+.code-block button.copy:before,
+.code-block button.copy:after {
+  content: "" !important;
+  display: block;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.code-block button.copy:before {
+  background-image: url("/assets/icons/clipboard-regular.svg");
+}
+
+.code-block button.copy:after {
+  background-image: url("/assets/icons/clipboard-check-solid.svg");
+  position: absolute;
+  top: 0;
+}
+
+.code-block button.copy:after,
+.code-block button.copied:before {
+  display: none;
+}
+
+.code-block button.copied:after {
+  display: block;
+}
+
+.code-block .shiki {
+  margin: 0;
+  overflow-x: auto;
+  border-radius: 0;
+  border-bottom-left-radius: var( --border-radius);
+  border-bottom-right-radius: var( --border-radius);
+}
+
+.code-block header {
+  border: 1px #eaeaea solid;
+  padding: 0.25em 0.5rem;
+  background-color: #e8e8e8;
+  border-top-left-radius: var( --border-radius);
+  border-top-right-radius: var( --border-radius);
+}
+
+.code-block .attribute-lang {
+  font-size: 1rem;
+  font-weight: bold;
+}
