@@ -1,31 +1,31 @@
 ---
 title: An example of a simple end-to-end Machine Learning project
 desc: |
-    In this article, I will describe the differents steps of an Machine Learning (ML) project for question tagging using stackoverflow data.
+    In this article, I will describe the generic architecture of a Machine Learning (ML) project in general. Then I will present the steps I used for a specific use case: question tagging using stackoverflow data.
 tags:
   - mlops
   - architecture
 ---
 
-I wanted a toy project to show the different steps a machine learning (ML) project goes through "in real life". So I created the [tag generator project](https://github.com/tekeinhor/tag-generator). I didn't really focused on the ML side. I haven't really fine-tuned the model. I was more concerned with the engineering and ops aspects of ML projects.
-Before we dive into the various steps I took to complete this project, I would first like to discuss the architecture of the [MLOps](/posts/mlops)-based ML project.
+I wanted a toy project to show the different steps a machine learning (ML) project goes through "in real life". So I created the [tag generator project](https://github.com/tekeinhor/tag-generator). My focus was not on the modeling side but rather on the engineering and ops aspects of ML projects.
+Before we dive into the various steps I took to complete this project, I would first like to discuss the architecture a ML project following [MLOps](/posts/mlops) principles.
 
 ## MLOps-based architecture for ML projects
 ![MLOps-based architecture for ML projects](./assets/mlops_lifecycle.png){image-display}
 
 The image above is what I think a complete ML pipeline (should) look like when fundamental principles of software engineerning and devops are applied. A productive, maintainable, reliable and efficient project requires the various components shown in the diagram. 
 The components are:
-1) A **data pipeline**: Data cleaning and processing are the first steps, followed by "Feature Creation". (Some people may add a Feature Store here). I separated this block from the Training pipeline's one to emphasize that 'Feature Creation' is also a necessary step when serving the model.
+1) A **data pipeline**: Data cleaning and processing are the first steps, followed by "Feature Creation". (Some people may add a Feature Store here). I separated this block from the Training pipeline one to emphasize that 'Feature Creation' is also a necessary step when serving the model.
 
 2) A **(re)training pipeline**: This is where the magic happens, they say. This is where the model is created and engineered.
-
+ 
 3) A **CICD**: Because eveything we are discussing is actual code,  it is important to follow the basic rules of code integration, testing and deployment.
 
 4) A **model registry**: This is where we store and version the model and its metadata. The storage solution can range from a basic AWS S3 bucket to a more advanced option like the one offered by [MLFlow](https://mlflow.org/docs/latest/model-registry.html). 
 
 5) A **model serving pipeline**: It is important to consider how the model will be used, and develop the service accordingly. The prediction service will be designed in *batch*, *real-time* or *streaming* mode depending on the size of the data(on which the predictions will be performed), latency tolerance of the result, and the availability of computation resources. 
 
-6) A **performance monitoring setup**: This is where we collect metrics to assess the performance of the model and the prediction service global health. Alerts can be created and retraining can be triggered automatically based on the alerts. This is based on the observability concept, popular in Site Reliability Engineering (SRE).
+6) A **performance monitoring setup**: This is where we collect metrics to assess the performance of the model and the prediction service global health. Alerts can be created and retraining can be triggered automatically based on said alerts.
 
 It is important to note that it is still possible to achieve a working project without having all of these components in place.
 The level of automation of the various components determines the maturity level of the project. For additional information on maturity level, please refer to [this article](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) from Google Cloud Architecture Center.
@@ -39,12 +39,13 @@ Below, I describe the steps I took to create the project. I assigned each step t
 Some of these steps will become fully-fledged articles where I will detail my choices, share my perspectives, or write tutorials.
 
 ### The "Data Scientist" job
-1) Find a dataset and choose a problem to solve
-2) Experiments with the dataset
-3) Create the model
-4) Serve the model through an API (real time data processing strategy)<sup>*</sup>
-5) Code the API and Dockerize it<sup>*</sup>
-6) Code the UI (user interface) and Dockerize it<sup>*</sup>
+1) Find an open dataset 
+2) Define a problem to solve
+3) Experiments with the dataset
+4) Create the model
+5) Serve the model through an API (real time data processing strategy)<sup>*</sup>
+6) Code the API and Dockerize it<sup>*</sup>
+7) Code the UI (user interface) and Dockerize it<sup>*</sup>
 
 > **<sup>\*</sup>** Could be done by a data scientist or an MLOps engineer, depending on the data scientist's software engineering skills.
 

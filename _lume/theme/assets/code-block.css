@@ -5,6 +5,7 @@
 
 .code-block code {
   background-color: transparent;
+  font-size: 0.8rem;
 }
 
 .code-block button.copy {
