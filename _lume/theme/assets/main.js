@@ -1,5 +1,6 @@
 import "./components/wave.js";
 import "./components/toc-highlighter.js"
+import "./components/color-scheme.js"
 
 globalThis.addEventListener("DOMContentLoaded", () => {
     // autosync copyright year
