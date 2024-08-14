@@ -29,7 +29,7 @@ All we need to do is to configure a trust relationship, on the cloud side, that 
 
 ## Configure your AWS
 
-1) [create an Identity Provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
+1) [Create an Identity Provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
     - At the top of the console, in the search bar, search for and choose: {{ aws.button("IAM", "ternary")}}
     - From the Access Management navigation menu located on the left side of the console, Choose **Identity Providers**
     - Choose {{ aws.button("Add Provider")}}, the **Add an Identity provider** page is displayed
@@ -42,7 +42,7 @@ All we need to do is to configure a trust relationship, on the cloud side, that 
     - A {{ aws.button("Identity provider added.", "success", "circle-check")}}  message is displayed
 
 
-2) create the role that Github Actions will assume
+2) Create the role that Github Actions will assume
     - At the top of the console, in the search bar, search for and choose: {{ aws.button("IAM", "ternary")}} 
     - Choose **Roles**, from the Access Management navigation menu located on the left side of the console
     - Choose {{ aws.button("Create Role")}}
