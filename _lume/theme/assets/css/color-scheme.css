@@ -1,0 +1,102 @@
+
+.switch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    border: 2px solid var(--color-accent2);
+    border-radius: 24px;
+    --size: 45px;
+    width: var(--size);
+    height: calc(var(--size)/2);
+    background-color:#eab308;
+}
+
+.switch i {
+    font-size: 15px;
+    color: white;
+}
+
+.switch__on, .switch__off {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.switch .switch__placeholder{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-bg);
+    border-radius: 50%;
+    transition: left 0.25s;
+}
+
+.switch.active  .switch__placeholder{ 
+    left: 50%;
+}
+
+
+html.dark-mode {
+    --color-bg: #101214;
+    --color-fg: rgb(144, 141, 150);
+    --showcase-card-color: #161A1D;
+    --showcase-card-border-color: #161A1D;
+    --color-accent2: #0071e3; /* #1a6ece; */
+    --color-title: #b6c2cf;
+    --fg-color: red;
+    --icon-color: #b6c2cf;
+    --brand-icon-color: #fafaf9;
+
+    --tag-fg-default: var(--slate-300);
+    --tag-bg-default: var(--slate-800);
+    
+    --tag-fg-terraform: var(--purple-300);
+    --tag-bg-terraform: var(--purple-800);
+
+    --tag-fg-python: var(--green-300);
+    --tag-bg-python: var(--green-800);
+
+    --tag-fg-aws: var(--orange-300);
+    --tag-bg-aws: var(--orange-800);
+
+    --tag-fg-ops: var(--amber-300);
+    --tag-bg-ops: var(--amber-800);
+
+    --tag-fg-mlops: var(--red-300);
+    --tag-bg-mlops: var(--red-800);
+
+    --tag-fg-ml: var(--blue-300);
+    --tag-bg-ml: var(--blue-800);
+
+    --tag-fg-ci-cd: var(--pink-300);
+    --tag-bg-ci-cd: var(--pink-800);
+
+    --tag-fg-github-actions: var(--indigo-300);
+    --tag-bg-github-actions: var(--indigo-800);
+
+    --tag-fg-architecture: var(--emerald-300);
+    --tag-bg-architecture: var(--emerald-800);
+
+}
+
+html.dark-mode .switch{
+    background-color: var(--color-accent2);
+}
+
+html.dark-mode .switch i {
+    color: white;
+}
+
+html:not(.dark-mode){
+
+}
+
+
+html.dark-mode .showcase-card.showcase-post {
+        box-shadow: none;
+}
+
+html:not(.dark-mode) .switch i {
+}
