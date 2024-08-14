@@ -10,18 +10,18 @@
 
 		<h3 class="p-name">
 			{% if post.type == "project" %}
-			<img width="20" src="/assets/icons/code-solid.svg" />
+			<i class="fa-solid fa-code" style="color:var(--icon-color)"></i>
 			{% elif post.draft %}
-			<img width="20" src="/assets/icons/danger-solid.svg" />
+			<i class="fa-solid fa-triangle-exclamation" style="color:var(--icon-color)"></i>
 			{% else %}
-			<img width="15" src="/assets/icons/pen-fancy-solid.svg" />
+			<i class="fa-solid fa-pen-fancy" style="color:var(--icon-color)"></i>
 			{% endif %}
 			{{ post.title }}
 		</h3>
 
 		{% if post.icon %}
 		<div>
-			<img width="20" src="/assets/{{ post.icon }}-dark.svg" alt="" loading="lazy" decoding="async">
+			<i class="{{ post.icon}}" style="color:var(--brand-icon-color);font-size:20px;"></i>
 		</div>
 		{% endif %}
 		</a>
