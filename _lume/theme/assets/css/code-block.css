@@ -50,16 +50,16 @@
   margin: 0;
   overflow-x: auto;
   border-radius: 0;
-  border-bottom-left-radius: var( --border-radius);
-  border-bottom-right-radius: var( --border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 .code-block header {
   border: 1px var(--color-bg2) solid;
   padding: 0.25em 0.5rem;
   background-color: #e8e8e8;
-  border-top-left-radius: var( --border-radius);
-  border-top-right-radius: var( --border-radius);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
 }
 
 .code-block .attribute-lang {

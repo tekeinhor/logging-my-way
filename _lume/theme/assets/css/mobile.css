@@ -1,12 +1,12 @@
 @media only screen and (max-width: 768px) {
-    div.post__body {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-    main {
-        padding: 1px 2.5ch;
-    }
-    main.blog-post{
-        max-width: none;
-    }
+  div.post__body {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  main {
+    padding: 1px 2.5ch;
+  }
+  main.blog-post {
+    max-width: none;
+  }
 }
