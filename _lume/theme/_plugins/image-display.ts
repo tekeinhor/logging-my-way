@@ -7,28 +7,6 @@ export default function image_display() {
         const { document } = page;
         if (!document) continue;
 
-        const style = document.createElement("style");
-        style.textContent = /* css */`
-          .image-display {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            gap: 1rem;
-          }
-          
-          .image-display img[image-display] {
-            max-width: 100%;
-            object-fit: contain;
-            border: 2px #e8e8e8 solid;
-            border-radius: 10px;
-          }
-
-          .image-display__caption {
-            font-style: italic;
-          }
-        `;
-        document.head.append(style);
-
         const images = document.querySelectorAll("img[image-display]");
         for (const image of images) {
           const div = document.createElement("div");
