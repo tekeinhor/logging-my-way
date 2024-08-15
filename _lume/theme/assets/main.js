@@ -8,5 +8,7 @@ globalThis.addEventListener("DOMContentLoaded", () => {
     if (copyright) copyright.textContent = `©${new Date().getFullYear()}`;
 
     // add zoom support on image with image-display attribute
-    mediumZoom("[image-display]");
+    mediumZoom("[image-display]", {
+        background: 'var(--bg-secondary)',
+    });
 });
