@@ -4,102 +4,93 @@
     --green-300: #4ade80;
     --green-400: #4ade80;
     --green-800: #166534;
+    --green-950: #052e16;
 
     --lime-100: #ecfccb;
     --lime-700: #4d7c0f;
     --lime-300: #bef264;
     --lime-400: #a3e635;
     --lime-800: #3f6212;
+    --lime-950: #1a2e05;
+
 
     --emerald-100: #d1fae5;
     --emerald-700: #047857;
     --emerald-300: #6ee7b7;
     --emerald-400: #34d399;
-    --emerald-800: #166534;
+    --emerald-800: #065f46;
+    --emerald-950: #022c22;
+
 
     --red-100: #fee2e2;
     --red-700: #b91c1c;
     --red-300: #fca5a5;
     --red-400: #f87171;
     --red-800: #991b1b;
+    --red-950 :#450a0a;
+
 
     --purple-100: #f3e8ff;
     --purple-700: #7e22ce;
     --purple-300: #d8b4fe;
     --purple-400: #c084fc;
     --purple-800: #6b21a8;
+    --purple-950: #3b0764;
+
 
     --orange-100: #ffedd5;
     --orange-700: #c2410c;
     --orange-300: #fdba74;
     --orange-400: #fb923c;
     --orange-800: #9a3412;
+    --orange-950: #431407;
+
 
     --neutral-100: #f5f5f5;
     --neutral-700: #404040;
     --neutral-300: #d4d4d4;
     --neutral-400: #a3a3a3;
     --neutral-800: #262626;
+    --neutral-950: #0a0a0a;
+
 
     --slate-100: #f1f5f9;
     --slate-700: #334155;
     --slate-300: #cbd5e1;
     --slate-400: #94a3b8;
     --slate-800: #1e293b;
+    --slate-950: #020617;
+
 
     --amber-100: #fef3c7;
     --amber-700: #b45309;
     --amber-300: #fcd34d;
     --amber-400: #fbbf24;
     --amber-800: #92400e;
+    --amber-950: #451a03;
+
 
     --blue-100: #dbeafe;
     --blue-700: #1d48d8;
     --blue-300: #93c5fd;
     --blue-400: #60a5fa;
     --blue-800: #1e40af;
+    --blue-950: #451a03;
+
 
     --indigo-100: #e0e7ff;
     --indigo-700: #4338ca;
     --indigo-300: #a5b4fc;
     --indigo-400: #818cf8;
     --indigo-800: #3730a3;
+    --indigo-950: #1e1b4b;
+
 
     --pink-100: #fce7f3;
     --pink-700: #be185d;
     --pink-300: #fda4af;
     --pink-400: #f472b6;
     --pink-800: #9d174d;
-}
+    --pink-950: #500724;
 
-:root {
-    --tag-fg-default: var(--slate-700);
-    --tag-bg-default: var(--slate-100);
-    
-    --tag-fg-terraform: var(--purple-700);
-    --tag-bg-terraform: var(--purple-100);
-
-    --tag-fg-python: var(--green-700);
-    --tag-bg-python: var(--green-100);
-
-    --tag-fg-aws: var(--orange-700);
-    --tag-bg-aws: var(--orange-100);
-
-    --tag-fg-ops: var(--amber-700);
-    --tag-bg-ops: var(--amber-100);
-
-    --tag-fg-mlops: var(--red-700);
-    --tag-bg-mlops: var(--red-100);
-
-    --tag-fg-ml: var(--blue-700);
-    --tag-bg-ml: var(--blue-100);
-
-    --tag-fg-ci-cd: var(--pink-700);
-    --tag-bg-ci-cd: var(--pink-100);
-
-    --tag-fg-github-actions: var(--indigo-700);
-    --tag-bg-github-actions: var(--indigo-100);
-
-    --tag-fg-architecture: var(--emerald-700);
-    --tag-bg-architecture: var(--emerald-100);
 }
