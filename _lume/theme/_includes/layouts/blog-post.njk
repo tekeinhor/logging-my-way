@@ -20,7 +20,7 @@ mainClass: blog-post
 			{%- endif %}
 			<p class="post-meta">
 				<time datetime="{{ date | date }}" class="dt-published">{{ date | date('HUMAN_DATE') }}</time>
-				✦ {{ readingInfo.minutes }} min read
+				<i class="icon">✦</i> {{ readingInfo.minutes }} min read
 				<br />
 				{{ macro_tags.show_tags(tags) }}
 			</p>

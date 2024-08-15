@@ -31,8 +31,15 @@
   {%- endset %}
   <span style="{{ css | e }}">
   {%- if icon.length > 0 -%}
-  <i class="fa-regular fa-{{icon}}"></i>
+  <i class="icon fa-regular fa-{{icon}}" style="color:white;"></i>
   {%- endif -%}
   {{ text }}
   </span>
+{%- endmacro -%}
+
+
+{%- macro icon(icon="", color="white") -%}
+  {%- if icon.length > 0 -%}
+    <i class="icon {{icon}}" style="color:{{color}};"></i>
+  {%- endif -%}
 {%- endmacro -%}

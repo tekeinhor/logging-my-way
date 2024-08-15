@@ -10,11 +10,11 @@
 
 		<h3 class="p-name">
 			{% if post.type == "project" %}
-			<i class="fa-solid fa-code" style="color:var(--icon-color)"></i>
+			<i class="icon fa-solid fa-code"></i>
 			{% elif post.draft %}
-			<i class="fa-solid fa-triangle-exclamation" style="color:var(--icon-color)"></i>
+			<i class="icon fa-solid fa-triangle-exclamation"></i>
 			{% else %}
-			<i class="fa-solid fa-pen-fancy" style="color:var(--icon-color)"></i>
+			<i class="icon fa-solid fa-pen-fancy"></i>
 			{% endif %}
 			{{ post.title }}
 		</h3>

@@ -52,8 +52,8 @@
 				</div>
 				
 				<div class="switch">
-					<div class="switch__on"><i class="fa-solid fa-moon"></i></div>
-					<div class="switch__off"><i class="fa-regular fa-sun"></i></div>
+					<div class="switch__on"><i class="icon fa-solid fa-moon"></i></div>
+					<div class="switch__off"><i class="icon fa-regular fa-sun"></i></div>
 					<div class="switch__placeholder"></div>
 				</div>
 
@@ -68,7 +68,7 @@
 			<div class="footer__content">
 				<p>
 					{% for link in footer_links %}
-					{% if loop.index > 1 %}✦{% endif %}
+					{% if loop.index > 1 %}<i class="icon">✦</i>{% endif %}
 					<a href="{{ link.url }}" {% if url == link.url %} ariacurrent="page"{% endif %}>{{ link.name }}</a>
 					{%- endfor %}
 				</p>

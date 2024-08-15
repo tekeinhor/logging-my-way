@@ -11,7 +11,7 @@
     background-color: var(--color-accent2);
 }
 
-.switch i {
+.switch i.icon{
     font-size: 15px;
     color: var(--color-bg);
 }
