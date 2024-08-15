@@ -25,7 +25,6 @@ export default function image_display() {
 
           .image-display__caption {
             font-style: italic;
-            opacity: 0.5;
           }
         `;
         document.head.append(style);
