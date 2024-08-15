@@ -65,9 +65,13 @@ export default () => {
         shiki({
           highlighter: {
             langs: ["bash", "python", "yaml", "c", "rust", "json", "terraform"],
-            themes: ["light-plus"],
+            themes: ["light-plus", "github-dark"],
           },
-          theme: "light-plus",
+          themes: {
+            "light" : "light-plus",
+            "dark" : "github-dark",
+          },
+          defaultColor: "light",
         })
       )
       .use(shikiCSS())
