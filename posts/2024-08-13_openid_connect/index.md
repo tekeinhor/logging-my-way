@@ -43,7 +43,8 @@ All we need to do is to configure a trust relationship, on the cloud side, that 
 
 
 2) Create the role that Github Actions will assume
-    - At the top of the console, in the search bar, search for and choose: {{ aws.button("IAM", "ternary")}} 
+    - At the top of the console, in the search bar, search for and choose: {{ aws.button("IAM", "ternary")}}
+
     - Choose **Roles**, from the Access Management navigation menu located on the left side of the console
     - Choose {{ aws.button("Create Role")}}
     -  The **Select trusted entity** page is displayed as in the picture below
@@ -78,6 +79,7 @@ All we need to do is to configure a trust relationship, on the cloud side, that 
   
     <i class="icon fa-solid fa-circle-info" style="color:#008296"></i> using a wildcard (*) in the github repository allow requests from any branch. It is recommended to specify a branch.
     - Choose {{ aws.button("Next")}}
+
     - A page titled **Add permissions** is displayed, select the permissions you will need for your "Github Actions"
     - Choose {{ aws.button("Next")}}
     - Under **Role details**, enter your role name and description. Under Step 1 and Step 2, verify that everything is correct. Under Step 3, you can add Tags
