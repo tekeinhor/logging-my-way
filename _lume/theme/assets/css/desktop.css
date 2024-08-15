@@ -433,16 +433,6 @@
     margin: .5rem 0;
   }
   
-  .showcase-card>svg {
-    fill: var(--color-bg3);
-    position: absolute;
-    z-index: -1;
-    transform: rotate(-16deg);
-    width: 10ch;
-    top: 1.5ch;
-    right: -1ch;
-  }
-  
   .deprecated {
     filter: grayscale(0.5) brightness(0.9);
   }
