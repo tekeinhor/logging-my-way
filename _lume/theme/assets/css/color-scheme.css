@@ -1,101 +1,112 @@
+:root {
+  --off-white: #faf9f6;
+  --off-black: #121212;
 
-:root{
-    --color-fg: #404040;
-    --color-bg: #f5f5f5;
-    --color-bg2: #eaeaea;
-    --color-bg3: hsl(var(--hue-accent), 20%, 30%);
-    --color-accent: #d4d4d4;
-    --color-accent2: #0071e3; /* #1a6ece */
-    --color-accent3: #3D3D3D;
-    --color-title: var(--color-accent2);
-    --showcase-card-color: #f0f0f0;
-    --showcase-card-shadow-color: gainsboro;
-    --showcase-card-border-color: #dedede;
-    --color-code: #e2ddddbf;
-    --icon-color: black;
-    --brand-icon-color: black;
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #eaeaea;
 
-    --tag-fg-default: var(--slate-700);
-    --tag-bg-default: var(--slate-100);
-    
-    --tag-fg-terraform: var(--purple-700);
-    --tag-bg-terraform: var(--purple-100);
+  --text-primary: #404040;
+  --text-secondary: #404040; /*TBD*/
+  --text-tertiary: #969696;
 
-    --tag-fg-python: var(--green-700);
-    --tag-bg-python: var(--green-100);
+  --bg-card: #f0f0f0; /* hsl(primary) */
+  --bg-stroke: #e8e8e8; /* hsl(secondary) */
+  --icon-color: var(--off-black);
 
-    --tag-fg-aws: var(--orange-700);
-    --tag-bg-aws: var(--orange-100);
+  --primary: #06c;
+  --secondary: #06c;
+  --tertiary: #06c;
 
-    --tag-fg-ops: var(--amber-700);
-    --tag-bg-ops: var(--amber-100);
+  --showcase-card-color: var(--bg-card);
+  --showcase-card-shadow-color: gainsboro;
+  --showcase-card-border-color: #dedede;
 
-    --tag-fg-mlops: var(--red-700);
-    --tag-bg-mlops: var(--red-100);
+  --tag-fg-default: var(--slate-700);
+  --tag-bg-default: var(--slate-100);
 
-    --tag-fg-ml: var(--blue-700);
-    --tag-bg-ml: var(--blue-100);
+  --tag-fg-terraform: var(--purple-700);
+  --tag-bg-terraform: var(--purple-100);
 
-    --tag-fg-ci-cd: var(--pink-700);
-    --tag-bg-ci-cd: var(--pink-100);
+  --tag-fg-python: var(--green-700);
+  --tag-bg-python: var(--green-100);
 
-    --tag-fg-github-actions: var(--indigo-700);
-    --tag-bg-github-actions: var(--indigo-100);
+  --tag-fg-aws: var(--orange-700);
+  --tag-bg-aws: var(--orange-100);
 
-    --tag-fg-architecture: var(--emerald-700);
-    --tag-bg-architecture: var(--emerald-100);
+  --tag-fg-ops: var(--amber-700);
+  --tag-bg-ops: var(--amber-100);
+
+  --tag-fg-mlops: var(--red-700);
+  --tag-bg-mlops: var(--red-100);
+
+  --tag-fg-ml: var(--blue-700);
+  --tag-bg-ml: var(--blue-100);
+
+  --tag-fg-ci-cd: var(--pink-700);
+  --tag-bg-ci-cd: var(--pink-100);
+
+  --tag-fg-github-actions: var(--indigo-700);
+  --tag-bg-github-actions: var(--indigo-100);
+
+  --tag-fg-architecture: var(--emerald-700);
+  --tag-bg-architecture: var(--emerald-100);
 }
 
 html.dark-mode {
-    --color-fg: rgb(144, 141, 150);
-    --color-bg: #101214;
-    --showcase-card-color: #161A1D;
-    --showcase-card-border-color: #161A1D;
-    --color-accent2: #0071e3; /* #1a6ece; */
-    --color-title: #b6c2cf;
-    --fg-color: red;
-    --icon-color: #b6c2cf;
-    --brand-icon-color: #fafaf9;
 
-    --tag-fg-default: var(--slate-400);
-    --tag-bg-default: var(--slate-950);
-    
-    --tag-fg-terraform: var(--purple-400);
-    --tag-bg-terraform: var(--purple-950);
+  --bg-primary: #101214;
+  --bg-secondary: #292c2e; /*TBD*/
 
-    --tag-fg-python: var(--green-400);
-    --tag-bg-python: var(--green-950);
+  --text-primary: rgb(144, 141, 150);
+  --text-secondary: #404040; /*TBD*/
+  --text-tertiary: #969696;
 
-    --tag-fg-aws: var(--orange-400);
-    --tag-bg-aws: var(--orange-950);
+  --bg-card: #f0f0f0; /* hsl(primary) */
+  --bg-stroke: #e8e8e8; /* hsl(secondary) */
+  --icon-color: var(--off-white);
 
-    --tag-fg-ops: var(--amber-400);
-    --tag-bg-ops: var(--amber-950);
+  --primary: #06c;
+  --secondary: #06c;
+  --tertiary: #b6c2cf;
 
-    --tag-fg-mlops: var(--red-400);
-    --tag-bg-mlops: var(--red-950);
+  --showcase-card-color: #161a1d;
+  --showcase-card-shadow-color: transparent;
+  --showcase-card-border-color: #161a1d;
 
-    --tag-fg-ml: var(--blue-400);
-    --tag-bg-ml: var(--blue-950);
+  --tag-fg-default: var(--slate-400);
+  --tag-bg-default: var(--slate-950);
 
-    --tag-fg-ci-cd: var(--pink-400);
-    --tag-bg-ci-cd: var(--pink-950);
+  --tag-fg-terraform: var(--purple-400);
+  --tag-bg-terraform: var(--purple-950);
 
-    --tag-fg-github-actions: var(--indigo-400);
-    --tag-bg-github-actions: var(--indigo-950);
+  --tag-fg-python: var(--green-400);
+  --tag-bg-python: var(--green-950);
 
-    --tag-fg-architecture: var(--emerald-400);
-    --tag-bg-architecture: var(--emerald-950);
+  --tag-fg-aws: var(--orange-400);
+  --tag-bg-aws: var(--orange-950);
 
+  --tag-fg-ops: var(--amber-400);
+  --tag-bg-ops: var(--amber-950);
+
+  --tag-fg-mlops: var(--red-400);
+  --tag-bg-mlops: var(--red-950);
+
+  --tag-fg-ml: var(--blue-400);
+  --tag-bg-ml: var(--blue-950);
+
+  --tag-fg-ci-cd: var(--pink-400);
+  --tag-bg-ci-cd: var(--pink-950);
+
+  --tag-fg-github-actions: var(--indigo-400);
+  --tag-bg-github-actions: var(--indigo-950);
+
+  --tag-fg-architecture: var(--emerald-400);
+  --tag-bg-architecture: var(--emerald-950);
 }
 
-
-
-html:not(.dark-mode){
-
+html:not(.dark-mode) {
 }
-
 
 html.dark-mode .showcase-card.showcase-post {
-        box-shadow: none;
+  box-shadow: none;
 }

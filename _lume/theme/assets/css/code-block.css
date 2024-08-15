@@ -11,16 +11,17 @@
 .code-block button.copy {
   border: none;
   cursor: pointer;
-  width: var(--btn-size);
-  height: var(--btn-size);
   position: relative;
+  font-size: var(--btn-size);
+  font-family: "Font Awesome 6 Free";
   padding: 0;
 }
 
 .code-block button.copy:before,
 .code-block button.copy:after {
-  content: "" !important;
+  /* content: "" !important; */
   display: block;
+  font-size: var(--btn-size);
   width: var(--btn-size);
   height: var(--btn-size);
   background-size: contain;
@@ -28,22 +29,22 @@
 }
 
 .code-block button.copy:before {
-  background-image: url("/assets/icons/clipboard-regular.svg");
+  content: "\f328" !important;
 }
 
 .code-block button.copy:after {
-  background-image: url("/assets/icons/clipboard-check-solid.svg");
+  content: "\f46c" !important;
+  font-family: "FontAwesome";
   position: absolute;
-  top: 0;
+  inset: 0;
 }
 
-.code-block button.copy:after,
-.code-block button.copied:before {
-  display: none;
+.code-block button.copy:after{
+  visibility: hidden;
 }
 
 .code-block button.copied:after {
-  display: block;
+  visibility: visible;
 }
 
 .code-block .shiki {
@@ -55,9 +56,9 @@
 }
 
 .code-block header {
-  border: 1px var(--color-bg2) solid;
+  border: 1px var(--bg-secondary) solid;
   padding: 0.25em 0.5rem;
-  background-color: #e8e8e8;
+  background-color: var(--bg-secondary);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
 }

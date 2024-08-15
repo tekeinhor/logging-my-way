@@ -2,10 +2,9 @@ nav.toc {
   position: sticky;
   top: 33%;
   padding: 1.4rem;
-  color: var(--color-fg);
 }
 nav.toc span {
-  color: var(--text-teriary);
+  color: var(--text-tertiary);
   font-weight: bold;
 }
 nav.toc > ol {
@@ -18,7 +17,7 @@ nav.toc a {
 }
 nav.toc a:hover {
   text-decoration: none;
-  color: var(--color-accent2);
+  color: var(--primary);
 }
 
 div.post__body {
@@ -28,5 +27,5 @@ div.post__body {
 
 nav.toc a.active {
   font-weight: bold;
-  color: var(--color-accent2);
+  color: var(--primary);
 }
