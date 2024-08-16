@@ -71,6 +71,7 @@ i.icon-sun {
   transition: left 0.25s;
 }
 
-.switch.active .switch__placeholder {
+.switch.active .switch__placeholder,
+.dark-mode .switch .switch__placeholder{
   left: calc(50% + 3px);
 }
