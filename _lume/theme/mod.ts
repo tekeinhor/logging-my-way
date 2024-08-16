@@ -71,7 +71,6 @@ export default () => {
             "light" : "light-plus",
             "dark" : "github-dark",
           },
-          defaultColor: "light",
         })
       )
       .use(shikiCSS())

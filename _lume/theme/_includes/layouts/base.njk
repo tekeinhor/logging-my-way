@@ -19,6 +19,7 @@
 		<script>
 			const is_local_dark_mode = localStorage.getItem("color-scheme") === "dark"
 			document.documentElement.classList.toggle("dark-mode", is_local_dark_mode);
+			document.documentElement.setAttribute("data-color", is_local_dark_mode ? "dark":"light");
 		</script>
 	</head>
 	<body>

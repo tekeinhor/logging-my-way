@@ -11,9 +11,10 @@ if (toggle_switch){
         const is_dark_mode = html.classList.contains("dark-mode")
         if (is_dark_mode){
             localStorage.setItem("color-scheme", "dark")
+            document.documentElement.setAttribute("data-color", "dark");
         }else{
             localStorage.setItem("color-scheme", "light")
-
+            document.documentElement.setAttribute("data-color", "light");
         }
     })
 }
