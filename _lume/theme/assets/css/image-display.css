@@ -14,5 +14,5 @@
 
 .image-display__caption {
   font-style: italic;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
 }

@@ -80,6 +80,7 @@ h2,
 h3,
 h4 {
   font-family: JetBrains Mono, Arial, Helvetica, sans-serif;
+  color: var(--text-tertiary);
 }
 
 code {
@@ -194,7 +195,7 @@ article img {
 }
 
 blockquote {
-  border-left: solid var(--text-tertiary) 0.3ch;
+  border-left: solid var(--text-secondary) 0.3ch;
   background-color: var(--bg-secondary);
   padding-left: 1.7ch;
 }
@@ -223,7 +224,7 @@ resp-cont[data-pad] img {
 }
 
 #header a {
-  color: var(--text-primary);
+  color: var(--text-tertiary);
   font-weight: 400;
 }
 
@@ -323,7 +324,7 @@ main.blog-post {
 }
 
 .showcase-card.showcase-post {
-  background-color: var(--showcase-card-color);
+  background-color: var(--showcase-card-bg-color);
   box-shadow: 0 0 5px var(--showcase-card-shadow-color);
   border: 1px var(--showcase-card-border-color) solid;
   transition: ease 0.5s transform;
@@ -336,8 +337,14 @@ main.blog-post {
   display: flex;
   align-items: baseline;
   gap: 10px;
-  color: var(--tertiary);
+  color: var(--showcase-card-text-color);
+  margin: 0 0.5ch 0 0;
 }
+
+.showcase-card h3 i.icon {
+  color: var(--showcase-card-icon-color);
+}
+
 
 .showcase-readmore {
   text-align: right;
@@ -374,9 +381,6 @@ main.blog-post {
   margin: 0.5rem 0 0.5rem 0;
 }
 
-.showcase-card h3 {
-  margin: 0 0.5ch 0 0;
-}
 
 .showcase-card p {
   margin: 0.5rem 0;
@@ -497,7 +501,7 @@ main.blog-post {
 }
 
 .icon-footprint path {
-  fill: var(--tertiary);
+  fill: var(--primary);
 }
 
 #header fu-wave,

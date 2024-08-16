@@ -9,6 +9,6 @@ globalThis.addEventListener("DOMContentLoaded", () => {
 
     // add zoom support on image with image-display attribute
     mediumZoom("[image-display]", {
-        background: 'var(--bg-secondary)',
+        background: 'var(--bg-surface)',
     });
 });

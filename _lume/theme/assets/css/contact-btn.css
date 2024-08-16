@@ -4,7 +4,7 @@
 }
 .contact-btn a{
     background-color: var(--secondary);
-    color: white;
+    color: var(--off-color);
     border-radius: 5px;
     position: relative;
     overflow: hidden;
