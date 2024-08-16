@@ -36,7 +36,7 @@ All we need to do is to configure a trust relationship, on the cloud side, that 
     - Select the radio button **OpenID Connect**
     - In the **Provider URL** field enter: `https://token.actions.githubusercontent.com` and in the **Audience** field enter: `sts.amazonaws.com`
 
-        <i class="icon fa-solid fa-circle-info" style="color:#008296"></i> This info is found in the [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services.) of Github documentations.
+        {{ aws.info()}} This info is found in the [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services.) of Github documentations.
     - Add tags (optional)
     - Choose {{ aws.button("Add Provider")}}
     - A {{ aws.button("Identity provider added.", "success", "circle-check")}}  message is displayed
@@ -77,7 +77,7 @@ All we need to do is to configure a trust relationship, on the cloud side, that 
     ```
     - Replace `<accountId>`, `<userName>` and `<userName>` with your own values
   
-    <i class="icon fa-solid fa-circle-info" style="color:#008296"></i> using a wildcard (*) in the github repository allow requests from any branch. It is recommended to specify a branch.
+    {{ aws.info()}} using a wildcard (*) in the github repository allow requests from any branch. It is recommended to specify a branch.
     - Choose {{ aws.button("Next")}}
 
     - A page titled **Add permissions** is displayed, select the permissions you will need for your "Github Actions"
@@ -231,7 +231,7 @@ jobs:
       ... # complete with other steps if needed
   ```
   
-  {{ aws.icon("fa-solid fa-circle-info", "#008296")}} Your `AWS_ROLE_ARN` is a the same as the `<yourRoleName>` created in the above section. It is stored in github secrets. `AWS_REGION` is your AWS region. It is stored as a secret as well.
+  {{ aws.info()}} Your `AWS_ROLE_ARN` is a the same as the `<yourRoleName>` created in the above section. It is stored in github secrets. `AWS_REGION` is your AWS region. It is stored as a secret as well.
 
 We are done ! We have:
 - [x] Created an identity provider
