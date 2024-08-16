@@ -230,13 +230,21 @@ resp-cont[data-pad] img {
 
 .header__content {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 0.25rem;
   font-size: 1.5rem;
   padding: 1rem 1ch calc(1rem + 24px * 1.5);
   position: relative;
   z-index: 1;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+div.header__left, 
+div.header__right{
+  display: flex;
+  align-items: center;
 }
 
 #home {
@@ -289,7 +297,7 @@ resp-cont[data-pad] img {
   }
 }
 
-main {
+main{
   margin: 2rem auto;
   padding: 1px 1ch;
   max-width: 80ch;

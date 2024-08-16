@@ -6,9 +6,12 @@
   width: var(--size);
   height: calc(var(--size) / 2);
   background-color: var(--switcher-bg-color);
-  position: absolute;
-  right: 10px;
+
+  position: relative;
+  margin-right: 10px;
+  margin-left: 15px;
 }
+
 
 .switch i.icon {
   font-size: 15px;
