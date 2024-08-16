@@ -29,21 +29,22 @@ All we need to do is to configure a trust relationship, on the cloud side, that 
 
 ## Configure your AWS
 
-1) [create an Identity Provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
+1) [Create an Identity Provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
     - At the top of the console, in the search bar, search for and choose: {{ aws.button("IAM", "ternary")}}
     - From the Access Management navigation menu located on the left side of the console, Choose **Identity Providers**
     - Choose {{ aws.button("Add Provider")}}, the **Add an Identity provider** page is displayed
     - Select the radio button **OpenID Connect**
     - In the **Provider URL** field enter: `https://token.actions.githubusercontent.com` and in the **Audience** field enter: `sts.amazonaws.com`
 
-        <i class="fa-solid fa-circle-info" style="color:#008296"></i> This info is found in the [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services.) of Github documentations.
+        {{ aws.info()}} This info is found in the [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services.) of Github documentations.
     - Add tags (optional)
     - Choose {{ aws.button("Add Provider")}}
     - A {{ aws.button("Identity provider added.", "success", "circle-check")}}  message is displayed
 
 
-2) create the role that Github Actions will assume
-    - At the top of the console, in the search bar, search for and choose: {{ aws.button("IAM", "ternary")}} 
+2) Create the role that Github Actions will assume
+    - At the top of the console, in the search bar, search for and choose: {{ aws.button("IAM", "ternary")}}
+
     - Choose **Roles**, from the Access Management navigation menu located on the left side of the console
     - Choose {{ aws.button("Create Role")}}
     -  The **Select trusted entity** page is displayed as in the picture below
@@ -76,8 +77,9 @@ All we need to do is to configure a trust relationship, on the cloud side, that 
     ```
     - Replace `<accountId>`, `<userName>` and `<userName>` with your own values
   
-    <i class="fa-solid fa-circle-info" style="color:#008296"></i> using a wildcard (*) in the github repository allow requests from any branch. It is recommended to specify a branch.
+    {{ aws.info()}} using a wildcard (*) in the github repository allow requests from any branch. It is recommended to specify a branch.
     - Choose {{ aws.button("Next")}}
+
     - A page titled **Add permissions** is displayed, select the permissions you will need for your "Github Actions"
     - Choose {{ aws.button("Next")}}
     - Under **Role details**, enter your role name and description. Under Step 1 and Step 2, verify that everything is correct. Under Step 3, you can add Tags
@@ -228,7 +230,8 @@ jobs:
           aws sts get-caller-identity
       ... # complete with other steps if needed
   ```
-  <i class="fa-solid fa-circle-info" style="color:#008296"></i> Your `AWS_ROLE_ARN` is a the same as the `<yourRoleName>` created in the above section. It is stored in github secrets. `AWS_REGION` is your AWS region. It is stored as a secret as well.
+  
+  {{ aws.info()}} Your `AWS_ROLE_ARN` is a the same as the `<yourRoleName>` created in the above section. It is stored in github secrets. `AWS_REGION` is your AWS region. It is stored as a secret as well.
 
 We are done ! We have:
 - [x] Created an identity provider

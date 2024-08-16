@@ -1,0 +1,18 @@
+.image-display {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.image-display img[image-display] {
+  max-width: 100%;
+  object-fit: contain;
+  border: 2px var(--bg-stroke) solid;
+  border-radius: 10px;
+}
+
+.image-display__caption {
+  font-style: italic;
+  color: var(--text-secondary);
+}

@@ -24,14 +24,18 @@ globalThis.customElements.define(
      * @type {HTMLDivElement}
      */
     #placeholder;
+    /**
+     * @type {CSSStyleDeclaration}
+     */
+    #computedStyle;
 
     #needsUpdate = true;
 
     properties = {
       repeat: 2,
       "shape-height": 20,
-      "fg-color": "red",
-      "bg-color": "blue",
+      "upper-color": "red",
+      "lower-color": "blue",
       "stroke-color": "black",
       "stroke-width": 10,
       "offset-x": 0,
@@ -61,6 +65,7 @@ globalThis.customElements.define(
       }
       `;
       root.append(style);
+      this.#computedStyle = getComputedStyle(this);
 
       const div = document.createElement("div");
       this.#placeholder = div;
@@ -72,9 +77,15 @@ globalThis.customElements.define(
       this.draw();
 
       this.#resizeObserver = new ResizeObserver(() => {
+        this.#needsUpdate = true;
         this.draw();
       });
+      globalThis.addEventListener("onChangeColorScheme", ()=>{
+        this.#needsUpdate = true;
+        this.draw();
+      })
     }
+
 
     /**
      * Observe element size when added to the DOM
@@ -119,7 +130,7 @@ globalThis.customElements.define(
      * Fetch properties from CSS variables
      */
     #updateProperties() {
-      Object.entries(this.properties).forEach(([key, oldValue]) => {
+      Object.entries(this.#computedStyle.getPropertyValue).forEach(([key, oldValue]) => {
         const propertyValue = this.style.getPropertyValue(`--${key}`);
         if (!propertyValue) return;
 
@@ -130,7 +141,7 @@ globalThis.customElements.define(
 
         if (newValue === oldValue) return;
 
-        this.properties[key] = newValue;
+        this.#computedStyle.getPropertyValue[key] = newValue;
         this.#needsUpdate = true;
       });
     }
@@ -150,7 +161,7 @@ globalThis.customElements.define(
 
       // Initialize variable
       const { width, height } = this.#canvas;
-      const offsetY = height * 0.5 + this.properties["offset-y"] * pixelRatio;
+      const offsetY = height * 0.5 + this.#computedStyle.getPropertyValue("--offset-y") * pixelRatio;
 
       let progress = 0
       let angle = 0
@@ -161,12 +172,15 @@ globalThis.customElements.define(
       const path = new Path2D();
       path.moveTo(0, 0);
 
+      const repeat = Number(this.#computedStyle.getPropertyValue("--repeat"))
+      const offsetX = Number(this.#computedStyle.getPropertyValue("--offset-x"))
+      const shapeHeight = parseFloat(this.#computedStyle.getPropertyValue("--shape-height"))
       for (let i = 0; i < width; i++) {
         progress = i / width;
-        angle = progress * Math.PI * this.properties.repeat;
-        angle += this.properties["offset-x"] * pixelRatio;
+        angle = progress * Math.PI * repeat;
+        angle +=offsetX * pixelRatio;
         x = Math.cos(angle);
-        y = Math.sin(angle) * this.properties["shape-height"] * pixelRatio;
+        y = Math.sin(angle) * shapeHeight * pixelRatio;
         path.lineTo(x + i, y + offsetY);
       }
 
@@ -174,18 +188,20 @@ globalThis.customElements.define(
       path.closePath();
 
       // Fill the entire canvas with a background color
-      this.#ctx.fillStyle = this.properties["bg-color"];
+      this.#ctx.fillStyle = this.#computedStyle.getPropertyValue("--lower-color");
       this.#ctx.fillRect(0, 0, width, height);
-
+      
       // Draw wave path with a offset
-      if (this.properties["stroke-width"] > 0) {
-        this.#ctx.fillStyle = this.properties["stroke-color"];
+      const strokeWidth = parseFloat(this.#computedStyle.getPropertyValue("--stroke-width"))
+      console.log(strokeWidth)
+      if (strokeWidth > 0) {
+        this.#ctx.fillStyle = this.#computedStyle.getPropertyValue("--stroke-color");
         this.#ctx.fill(path);
-        this.#ctx.setTransform(1, 0, 0, 1, 0, -this.properties["stroke-width"]);
+        this.#ctx.setTransform(1, 0, 0, 1, 0, -strokeWidth);
       }
-
+      
       // Draw the wave a second time without offset
-      this.#ctx.fillStyle = this.properties["fg-color"];
+      this.#ctx.fillStyle = this.#computedStyle.getPropertyValue("--upper-color");
       this.#ctx.fill(path);
       this.#ctx.setTransform(1, 0, 0, 1, 0, 0);
 

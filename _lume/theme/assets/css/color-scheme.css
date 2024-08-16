@@ -1,0 +1,120 @@
+:root {
+  --off-white: #F2F0EF;
+  --off-black: #121212;
+  --off-color: var(--off-white);
+
+  --primary: #06c;
+  --secondary: #06c;
+
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #eaeaea;
+
+  --text-primary: #404040;
+  --text-secondary: #969696;
+  --text-tertiary: #404040;
+
+  --icon-color: var(--off-black);
+
+  --bg-surface: #f0f0f0; /* hsl(primary) */
+  --bg-stroke: #e8e8e8; /* hsl(secondary) */
+
+  --switcher-bg-color: #aaa9a3;
+  --showcase-card-bg-color: var(--bg-surface);
+  --showcase-card-icon-color: var(--off-black);
+  --showcase-card-text-color: var(--primary);
+  --showcase-card-shadow-color: gainsboro;
+  --showcase-card-border-color: #dedede;
+
+  --tag-fg-default: var(--slate-700);
+  --tag-bg-default: var(--slate-100);
+
+  --tag-fg-terraform: var(--purple-700);
+  --tag-bg-terraform: var(--purple-100);
+
+  --tag-fg-python: var(--green-700);
+  --tag-bg-python: var(--green-100);
+
+  --tag-fg-aws: var(--orange-700);
+  --tag-bg-aws: var(--orange-100);
+
+  --tag-fg-ops: var(--amber-700);
+  --tag-bg-ops: var(--amber-100);
+
+  --tag-fg-mlops: var(--red-700);
+  --tag-bg-mlops: var(--red-100);
+
+  --tag-fg-ml: var(--blue-700);
+  --tag-bg-ml: var(--blue-100);
+
+  --tag-fg-ci-cd: var(--pink-700);
+  --tag-bg-ci-cd: var(--pink-100);
+
+  --tag-fg-github-actions: var(--indigo-700);
+  --tag-bg-github-actions: var(--indigo-100);
+
+  --tag-fg-architecture: var(--emerald-700);
+  --tag-bg-architecture: var(--emerald-100);
+}
+
+html.dark-mode {
+  --off-color: var(--off-black);
+
+  --primary: #73b9ff;
+  --secondary: #EDF0F7;
+
+  --bg-primary: #101214;
+  --bg-secondary: #1c1e20; /*TBD*/;
+
+  --text-primary: #a3a3a3 /* #A9A7AE*/;
+  --text-secondary: #e0e1eb; /*TBD*/
+  --text-tertiary: #ECE7E4;
+
+  --icon-color: var(--off-white);
+
+  --bg-surface: #161a1d; /* hsl(primary) */
+  --bg-stroke: #242627; /* hsl(secondary) */
+
+  --switcher-bg-color: var(--primary);
+  --showcase-card-bg-color: var(--bg-surface);
+  --showcase-card-icon-color: var(--primary);
+  --showcase-card-text-color: var(--off-white);
+  --showcase-card-shadow-color: transparent;
+  --showcase-card-border-color: #161a1d;
+
+  --tag-fg-default: var(--slate-400);
+  --tag-bg-default: var(--slate-950);
+
+  --tag-fg-terraform: var(--purple-400);
+  --tag-bg-terraform: var(--purple-950);
+
+  --tag-fg-python: var(--green-400);
+  --tag-bg-python: var(--green-950);
+
+  --tag-fg-aws: var(--orange-400);
+  --tag-bg-aws: var(--orange-950);
+
+  --tag-fg-ops: var(--amber-400);
+  --tag-bg-ops: var(--amber-950);
+
+  --tag-fg-mlops: var(--red-400);
+  --tag-bg-mlops: var(--red-950);
+
+  --tag-fg-ml: var(--blue-400);
+  --tag-bg-ml: var(--blue-950);
+
+  --tag-fg-ci-cd: var(--pink-400);
+  --tag-bg-ci-cd: var(--pink-950);
+
+  --tag-fg-github-actions: var(--indigo-400);
+  --tag-bg-github-actions: var(--indigo-950);
+
+  --tag-fg-architecture: var(--emerald-400);
+  --tag-bg-architecture: var(--emerald-950);
+}
+
+html:not(.dark-mode) {
+}
+
+html.dark-mode .showcase-card.showcase-post {
+  box-shadow: none;
+}
