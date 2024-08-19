@@ -20,6 +20,7 @@
 			const is_local_dark_mode = localStorage.getItem("color-scheme") === "dark"
 			document.documentElement.classList.toggle("dark-mode", is_local_dark_mode);
 			document.documentElement.setAttribute("data-color", is_local_dark_mode ? "dark":"light");
+			document.querySelector("meta[name='theme-color']").setAttribute("content", is_local_dark_mode? "#1c1e20":"#eaeaea");
 		</script>
 	</head>
 	<body>
@@ -44,8 +45,7 @@
 					<path d="M198.92 74.747C195.903 76.7957 192.513 77.5261 188.748 76.9381C184.984 76.3501 181.975 74.6201 179.722 71.7482C177.468 68.8763 176.614 65.683 177.159 62.1682L178.468 53.7329C179.013 50.2182 180.794 47.4364 183.811 45.3877C186.827 43.339 190.218 42.6087 193.982 43.1967C197.747 43.7847 200.755 45.5147 203.009 48.3866C205.262 51.2585 206.116 54.4518 205.571 57.9665L204.263 66.4019C203.718 69.9166 201.937 72.6983 198.92 74.747Z"/>
 				</svg>
 				<a href="/" rel="home" id="home" {%- if url == "/" %} aria-current="page"{% endif %}>
-					<div class="on-wide">{{ site.title | lower }}</div>
-					<div class="on-narrow">{{ site.title | lower }}</div>
+					{{ site.title | lower }}
 				</a>
 				</div>
 				<div class="header__right">
