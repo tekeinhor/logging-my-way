@@ -264,20 +264,6 @@ div.header__right{
   font-size: 1.2rem;
 }
 
-.on-narrow {
-  display: none !important;
-}
-
-@media screen and (max-width: 63.999ch) {
-  .on-wide {
-    display: none !important;
-  }
-
-  .on-narrow {
-    display: initial !important;
-  }
-}
-
 
 @media screen and (max-width: 55ch) {
   #header {
@@ -291,11 +277,6 @@ div.header__right{
   }
 }
 
-@media screen and (max-width: 43ch) {
-  #home .on-narrow {
-    display: none !important;
-  }
-}
 
 main{
   margin: 2rem auto;
