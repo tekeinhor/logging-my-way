@@ -46,6 +46,9 @@
   --tag-fg-ml: var(--blue-700);
   --tag-bg-ml: var(--blue-100);
 
+  --tag-fg-docker: var(--blue-700);
+  --tag-bg-docker: var(--blue-100);
+
   --tag-fg-ci-cd: var(--pink-700);
   --tag-bg-ci-cd: var(--pink-100);
 
@@ -101,6 +104,9 @@ html.dark-mode {
 
   --tag-fg-ml: var(--blue-400);
   --tag-bg-ml: var(--blue-950);
+
+  --tag-fg-docker: var(--blue-400);
+  --tag-bg-docker: var(--blue-950);
 
   --tag-fg-ci-cd: var(--pink-400);
   --tag-bg-ci-cd: var(--pink-950);
