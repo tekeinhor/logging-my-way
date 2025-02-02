@@ -1,0 +1,6 @@
+{%- macro element(content, link, icon="github") -%}
+<a href="{{ link }}" target="__blank" class="badge">
+    <span><i class="icon fa-brands fa-{{icon}}"></i></span>
+    <span>{{ content }}</span>
+</a>
+{%- endmacro %}

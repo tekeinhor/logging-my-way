@@ -16,3 +16,11 @@
   font-style: italic;
   color: var(--text-secondary);
 }
+
+html:not(.dark-mode) .image-display[color="dark-img"] {
+  display: none;
+}
+
+html.dark-mode .image-display[color="light-img"] {
+  display: none;
+}

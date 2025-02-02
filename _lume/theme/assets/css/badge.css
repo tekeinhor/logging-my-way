@@ -1,0 +1,13 @@
+.badge{
+    display: inline-flex;
+    gap: 7px;
+    border: 1px solid var(--bg-stroke);
+    padding: 3px 10px;
+    border-radius: 5px;
+    background-color: var(--secondary);
+    box-shadow: 0 0 5px var(--showcase-card-shadow-color);
+
+    color: var(--off-color);
+    text-decoration: none;
+    --icon-color : var(--off-color);
+}

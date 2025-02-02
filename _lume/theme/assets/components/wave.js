@@ -193,7 +193,6 @@ globalThis.customElements.define(
       
       // Draw wave path with a offset
       const strokeWidth = parseFloat(this.#computedStyle.getPropertyValue("--stroke-width"))
-      console.log(strokeWidth)
       if (strokeWidth > 0) {
         this.#ctx.fillStyle = this.#computedStyle.getPropertyValue("--stroke-color");
         this.#ctx.fill(path);
