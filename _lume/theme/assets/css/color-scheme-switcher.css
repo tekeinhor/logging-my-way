@@ -67,8 +67,8 @@ i.icon-sun {
   left: 3px;
   bottom: 0;
   margin: auto;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background-color: var(--bg-primary);
   border-radius: 50%;
   transition: left 0.25s;

@@ -6,7 +6,7 @@
   --primary: #06c;
   --secondary: #06c;
 
-  --bg-primary: #f5f5f5;
+  --bg-primary: #ffffff;
   --bg-secondary: #eaeaea;
 
   --text-primary: #404040;
@@ -15,7 +15,7 @@
 
   --icon-color: var(--off-black);
 
-  --bg-surface: #f0f0f0; /* hsl(primary) */
+  --bg-surface: #f5f5f5; /* hsl(primary) */
   --bg-stroke: #e8e8e8; /* hsl(secondary) */
 
   --switcher-bg-color: #aaa9a3;
