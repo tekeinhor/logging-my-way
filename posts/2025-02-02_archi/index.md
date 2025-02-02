@@ -95,13 +95,9 @@ The structure of the the `iac/terraform` directory is as follow:
 ```
 
 
-### Conclusion
+## Conclusion
 
-We've seen an example of architecture for deploying a complete project with AWS. Of course there are many ways, this architecure could be improved. So here a (non exhaustive) list of improvement axis:
-- Scalability 
-  - Improve dimensioning of the services with Fargate
-- Observability
-  - Add monitoring of logs, metrics and traces and alert to better handles error, crashes and downtime
-- Security
-  - Improve security with services within AWS with WAF (Web Application Firewall)
-
+We've seen an example of an architecture for deploying an entire project on AWS. Of course, there are many ways this architecture could be improved. So here is a (non-exhaustive) list of areas for improvement:
+- Scalability: improve dimensioning of the services with Fargate,
+- Observability: add monitoring (of logs, metrics and traces) add alerting in order to better handle failures, crashes and downtime,
+- Security: improve security of services within AWS with WAF (Web Application Firewall).
