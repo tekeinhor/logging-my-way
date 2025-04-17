@@ -29,3 +29,15 @@ tags:
 
 ## Conclusion
 And just like that, we've build our opentelemetry stack.
+
+https://www.scaleway.com/en/docs/cockpit/how-to/send-metrics-logs-to-cockpit/
+https://www.scaleway.com/en/developers/api/cockpit/v1/global-api/
+https://grafana.com/docs/mimir/latest/configure/configure-otel-collector/
+https://opentelemetry.io/docs/collector/configuration/
+https://opentelemetry.io/docs/collector/configuration/#environment-variables
+
+https://github.com/open-telemetry/opentelemetry-demo/blob/main/src/recommendation/recommendation_server.py
+https://github.com/open-telemetry/opentelemetry-python/blob/main/docs/examples/metrics/instruments/example.py
+
+
+https://sysdig.com/blog/prometheus-remote-write-opentelemetry/
