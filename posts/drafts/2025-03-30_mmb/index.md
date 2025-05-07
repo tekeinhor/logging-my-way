@@ -8,7 +8,7 @@ tags:
 
 I just discovered a thing about python, and I felt stupid.
 
-```tree
+```sh
 .
 └──my_project/
    ├── __init__.py
