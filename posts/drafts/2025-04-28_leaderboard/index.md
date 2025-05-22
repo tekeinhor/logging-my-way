@@ -109,3 +109,5 @@ A GitHub Actions (GHA) job is responsible for performing typical continuous inte
   - user management
   - firewall management
   - backup and recovery automation
+- Handle redundancy and failover to avoir the single point of failure architecture (replication)
+- Add alerting to know when some metrics are reaching a definied threshold ( being notified when CPU, RAM, request latency, amount of failed request reachine a threshold.)
