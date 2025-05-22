@@ -9,8 +9,15 @@ tags:
   - docker
 ---
 
+For the Leaderboard project, I wanted to ensure I had means to measure the system performance and stability. I wanted to have insights about the system potential issues, and better understands ways to solve them. If not during the competition, at least in retrospect.
+I knew that Scaleway had a fully managed observability solution called Cockpit. I thought I was the time to test it.
+
+In this article, we will explore how to set up monitoring for our FastAPI app.
+
 
 ## Let's start with OpenTelemetry
+- how to use Open Telemetry to instrument our FastAPI app
+- how to configure Scaleway cockpit
 
 ## Observability stack
 
