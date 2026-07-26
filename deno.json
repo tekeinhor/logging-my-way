@@ -18,14 +18,13 @@
     ]
   },
   "deploy": {
+  	"org": "furiouzz",
     "project": "loggingmyway",
     "entrypoint": "_lume/entrypoint.ts",
-    "include": [
-      "./_lume/entrypoint.ts",
-      "./_lume/_site"
-    ],
-	"exclude": [
+		"exclude": [
       "**/node_modules"
-    ]
+    ],
+  	"app": "logging-my-way"
   }
 }
+
